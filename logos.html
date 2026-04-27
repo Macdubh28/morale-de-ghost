@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Le Logos — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .logos-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .logos-greek { font-family: var(--font-title); font-size: clamp(4rem, 10vw, 8rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .logos-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .logos-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .consequences-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .consequence-item { padding: var(--spacing-lg); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); }
+    .consequence-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .consequence-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .cosmopolis-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .cosmopolis-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .cosmopolis-title { font-family: var(--font-head); font-size: clamp(1.2rem, 2.5vw, 1.75rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .cosmopolis-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .arc-final { padding: var(--spacing-2xl) 0 var(--spacing-xl); text-align: center; }
+    .arc-title { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .arc-flow { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-sm); }
+    .arc-node { font-family: var(--font-head); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pierre); padding: var(--spacing-sm) var(--spacing-xl); border: 1px solid rgba(232,224,208,0.08); background: var(--noir-soft); }
+    .arc-node.root { border-color: rgba(107,63,160,0.3); color: var(--pourpre-glow); }
+    .arc-arrow { color: var(--pourpre-dim); font-size: 0.8rem; opacity: 0.5; }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    @media (max-width: 768px) { .consequences-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="logos.html" class="active">Logos</a></li>
+    </ul>
+  </nav>
+  <div class="page-hero">
+    <p class="page-hero-label">VI — Le Logos et la Cosmopolis</p>
+    <h1 class="page-hero-title">La raison<br>universelle</h1>
+    <p class="page-hero-intro">Le concept philosophique le plus puissant du stoïcisme. Et le fondement invisible de toute la Morale de Ghost.</p>
+  </div>
+  <div class="content-block">
+    <div class="logos-central reveal">
+      <span class="logos-greek">logos</span>
+      <p class="logos-def">Logos — Raison universelle · Principe actif · Etincelle divine</p>
+      <p class="logos-text">Traduit souvent par "raison" — mais c'est insuffisant. Le Logos est la raison universelle qui structure le cosmos, le principe actif qui anime toute chose, ce que les hommes partagent avec les dieux, la source de toute loi vraiment juste.</p>
+    </div>
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">Ce que le Logos implique</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Une etincelle en chaque homme</h2>
+      <p class="concept-text">Chaque être humain possède une parcelle du Logos universel. Pas métaphoriquement — pour les Stoïciens, c'est une réalité physique. La raison humaine est de même nature que la raison cosmique, simplement à une échelle différente.</p>
+      <p class="concept-text">Conséquence directe : l'esclave et l'emperor sont faits de la même matière divine. La hiérarchie sociale n'a aucun fondement dans la nature des choses. Seule la vertu constitue une vraie distinction.</p>
+      <div class="consequences-grid">
+        <div class="consequence-item"><p class="consequence-num">Conséquence politique</p><p class="consequence-text">Toute autorité légitime vient de la raison partagée, pas de la force. Une loi injuste n'est pas une loi — c'est une violence organisée.</p></div>
+        <div class="consequence-item"><p class="consequence-num">Conséquence éthique</p><p class="consequence-text">Agir selon le Logos, c'est agir selon la nature profonde de ce qu'on est. La vertu n'est pas une contrainte — c'est l'accomplissement.</p></div>
+        <div class="consequence-item"><p class="consequence-num">Conséquence pratique</p><p class="consequence-text">Ce qui perturbe ta raison perturbe ton alignement avec le Logos. Maîtriser le monde intérieur, c'est rejoindre l'ordre universel.</p></div>
+        <div class="consequence-item"><p class="consequence-num">Conséquence pour Ghost</p><p class="consequence-text">La Morale de Ghost n'est pas une philosophie arbitraire. Elle cherche à s'aligner avec quelque chose de plus grand — la raison inhérente à toutes choses.</p></div>
+      </div>
+    </div>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Héraclite — La source</h2>
+      <p class="concept-text">Héraclite d'Éphèse précède le stoïcisme de deux siècles. Mais Marc Aurèle le citait constamment. Sa doctrine du Logos universel, du feu primordial et du changement perpétuel a nourri directement toute la pensée stoïcienne.</p>
+      <p class="concept-text">Son message central : tout change, rien ne demeure. Le fleuve n'est jamais le même. L'accepter sans résistance, c'est vivre selon la nature. C'est l'Amor Fati deux siècles avant les Stoïciens.</p>
+      <blockquote class="fig-citation">On ne se baigne jamais deux fois dans le même fleuve.<cite class="fig-cite">— Héraclite d'Éphèse</cite></blockquote>
+    </div>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Cléanthe — L'Hymne à Zeus</h2>
+      <p class="concept-text">Le seul texte stoïcien ancien conservé presque intégralement. Cléanthe — successeur de Zénon, ancien pugiliste qui finançait ses études en portant de l'eau la nuit — a écrit la déclaration philosophique la plus pure du stoïcisme ancien.</p>
+      <p class="concept-text">Son idée centrale : nous sommes les enfants du Logos. Porteurs de sa voix. Pas la voix du sang royal — la voix de la raison universelle.</p>
+      <blockquote class="fig-citation">Conduis-moi, Zeus, et toi aussi, Destin, vers le but que vous m'avez assigné.<cite class="fig-cite">— Cléanthe d'Assos, Hymne à Zeus</cite></blockquote>
+    </div>
+    <div class="cosmopolis-block reveal">
+      <p class="cosmopolis-label">La Cosmopolis</p>
+      <h2 class="cosmopolis-title">Une seule cité. Gouvernée par la raison.</h2>
+      <p class="cosmopolis-text">Zénon proposait une vision politique révolutionnaire dans sa République : une seule cité universelle — la cosmopolis — sans temples, sans tribunaux, sans monnaie. Gouvernée par le Logos seul.</p>
+      <p class="cosmopolis-text">Utopie intentionnelle : pas une réforme, une direction. Ce que serait le monde si tous les hommes vivaient selon la raison.</p>
+      <p class="cosmopolis-text">Pour la Morale de Ghost : la cosmopolis n'est pas un idéal politique abstrait. C'est la conscience que ce qu'on construit — même dans l'ombre, même pour soi — participe d'un ordre plus grand. Nous sommes citoyens du monde avant d'être citoyens de nos propres ambitions.</p>
+    </div>
+    <div class="arc-final reveal">
+      <p class="arc-title">L'architecture complète</p>
+      <div class="arc-flow">
+        <div class="arc-node root">Logos — Raison universelle</div>
+        <span class="arc-arrow">↓</span>
+        <div class="arc-node">L'Aigle — Perspective cosmique</div>
+        <span class="arc-arrow">↓</span>
+        <div class="arc-node">Macdubh — Force forgée (Épictète)</div>
+        <span class="arc-arrow">↓</span>
+        <div class="arc-node">Aurelius Secundus — L'homme au pouvoir</div>
+        <span class="arc-arrow">↓</span>
+        <div class="arc-node">Morale de Ghost — Service, pas domination</div>
+      </div>
+    </div>
+  </div>
+  <footer><p>Morale de Ghost — Doctrine Personnelle — Aurelius Secundus — MMXXVI</p></footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

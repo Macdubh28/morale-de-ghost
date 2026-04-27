@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Les Six Lois — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .lois-detail { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .niveau-header { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); padding: var(--spacing-xl) 0 var(--spacing-lg); border-top: 1px solid rgba(232,224,208,0.06); display: flex; align-items: center; gap: var(--spacing-md); }
+    .niveau-header.monde { color: var(--pourpre-dim); }
+    .niveau-header::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(232,224,208,0.08), transparent); }
+    .niveau-header.monde::after { background: linear-gradient(to right, rgba(107,63,160,0.2), transparent); }
+    .loi-detail-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.04); }
+    .loi-detail-block:last-child { border-bottom: none; }
+    .loi-detail-header { display: flex; align-items: baseline; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg); }
+    .loi-detail-num { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; color: var(--pourpre-glow); text-transform: uppercase; white-space: nowrap; }
+    .loi-detail-title { font-family: var(--font-body); font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-style: italic; color: var(--pierre); line-height: 1.3; }
+    .loi-detail-body { padding-left: calc(80px + var(--spacing-lg)); }
+    .loi-detail-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; }
+    .loi-racine { margin-top: var(--spacing-lg); padding: var(--spacing-md) var(--spacing-lg); border-left: 2px solid var(--pourpre-dim); background: rgba(107,63,160,0.04); }
+    .loi-racine-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-xs); }
+    .loi-racine-text { font-family: var(--font-body); font-size: 0.95rem; font-style: italic; color: var(--pierre-mute); line-height: 1.6; }
+    .loi-exercice { margin-top: var(--spacing-md); padding: var(--spacing-md) var(--spacing-lg); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); }
+    .loi-exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xs); }
+    .loi-exercice-text { font-size: 0.95rem; color: var(--pierre-dim); }
+    @media (max-width: 768px) { .loi-detail-body { padding-left: 0; margin-top: var(--spacing-md); } .loi-detail-header { flex-direction: column; gap: var(--spacing-xs); } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html" class="active">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+  <div class="page-hero">
+    <p class="page-hero-label">III — Les Six Lois Fondamentales</p>
+    <h1 class="page-hero-title">La doctrine<br>en mouvement</h1>
+    <p class="page-hero-intro">Deux niveaux. Six lois. De l'individu vers le monde. De la maîtrise intérieure vers la responsabilité extérieure.</p>
+  </div>
+  <div class="lois-detail">
+    <p class="niveau-header reveal">Niveau I — L'Individu · Ce que tu es quand personne ne regarde</p>
+    <div class="loi-detail-block reveal">
+      <div class="loi-detail-header"><span class="loi-detail-num">Loi I</span><h2 class="loi-detail-title">Le Ghost agit. Il n'annonce pas.</h2></div>
+      <div class="loi-detail-body">
+        <p class="loi-detail-text">L'action précède la parole. Toujours. Ce qui se fait dans le silence pèse plus que ce qui se proclame dans le bruit. Le monde récompense les déclarations — la Morale de Ghost récompense les actes.</p>
+        <p class="loi-detail-text">Avant de parler, demande-toi : <em>est-ce que c'est fait ?</em> Le silence n'est pas de l'humilité — c'est de la discipline. L'annonce consume l'énergie que l'action aurait utilisée.</p>
+        <div class="loi-racine"><p class="loi-racine-label">Racine stoïcienne</p><p class="loi-racine-text">Le Spoudaios — le sage accompli — est le même en public et en privé. Pas de masque. Ce que tu es seul, tu l'es devant l'empire.</p></div>
+        <div class="loi-exercice"><p class="loi-exercice-label">Exercice racine — Kathèkon</p><p class="loi-exercice-text">Identifie la prochaine action juste. Accomplis-la sans l'annoncer. Observe la différence de densité entre l'acte silencieux et l'acte proclamé.</p></div>
+      </div>
+    </div>
+    <div class="loi-detail-block reveal">
+      <div class="loi-detail-header"><span class="loi-detail-num">Loi II</span><h2 class="loi-detail-title">Il ne cherche pas l'approbation. Il cherche la justesse.</h2></div>
+      <div class="loi-detail-body">
+        <p class="loi-detail-text">L'approbation est extérieure — elle ne dépend pas de toi. La justesse est intérieure — elle dépend entièrement de toi. Chercher l'approbation, c'est remettre ta boussole entre les mains des autres.</p>
+        <p class="loi-detail-text">La justesse ne se négocie pas. Elle se reconnaît. C'est ce sentiment silencieux qui précède l'action juste — avant que quiconque l'ait validée.</p>
+        <div class="loi-racine"><p class="loi-racine-label">Racine stoïcienne</p><p class="loi-racine-text">La prohairesis — la faculté de choix moral — est le seul domaine souverain de l'homme. Notre liberté fondamentale réside entièrement dans notre capacité à juger justement.</p></div>
+        <div class="loi-exercice"><p class="loi-exercice-label">Exercice racine — Sympatheia</p><p class="loi-exercice-text">Face à une décision, retire toute considération du regard des autres. Demande-toi uniquement : quelle est l'action la plus juste ici ? Agis sur cette réponse seule.</p></div>
+      </div>
+    </div>
+    <div class="loi-detail-block reveal">
+      <div class="loi-detail-header"><span class="loi-detail-num">Loi III</span><h2 class="loi-detail-title">L'adversité est sa matière première.</h2></div>
+      <div class="loi-detail-body">
+        <p class="loi-detail-text">Macdubh — fils du noir — ne fuit pas l'obscurité. Il la traverse et en sort forgé. Ce qui brise les autres te définit. Non par masochisme, mais par lucidité : la forge ne détruit pas l'acier, elle le révèle.</p>
+        <p class="loi-detail-text">Chaque obstacle est une information. Chaque défaite, une instruction. La résistance que tu rencontres est proportionnelle à ce que tu construis.</p>
+        <div class="loi-racine"><p class="loi-racine-label">Racine stoïcienne</p><p class="loi-racine-text">Amor Fati — aime ce qui arrive, non dans la résignation, mais dans la transformation active. Ce qui arrive fait partie du Logos universel. Ta résistance est vaine ; ta transformation est possible.</p></div>
+        <div class="loi-exercice"><p class="loi-exercice-label">Exercice racine — Praemeditatio Malorum</p><p class="loi-exercice-text">Avant chaque projet majeur, visualise le pire scénario avec précision. Ressens-le. Puis demande-toi : survivrais-je à ça ? La réponse est presque toujours oui. Agis depuis cette certitude.</p></div>
+      </div>
+    </div>
+    <div class="loi-detail-block reveal">
+      <div class="loi-detail-header"><span class="loi-detail-num">Loi IV</span><h2 class="loi-detail-title">Il maîtrise son monde intérieur. Tout le reste suit.</h2></div>
+      <div class="loi-detail-body">
+        <p class="loi-detail-text">La Citadelle Intérieure ne tombe pas. Peu importe ce que le monde retire — réputation, confort, certitudes — le monde intérieur reste souverain. C'est là que tout commence. C'est là que tout se décide.</p>
+        <p class="loi-detail-text">Épictète enchaîné était plus libre que son maître. Non parce qu'il niait sa condition — mais parce que sa condition n'atteignait pas ce qui était réellement lui.</p>
+        <div class="loi-racine"><p class="loi-racine-label">Racine stoïcienne</p><p class="loi-racine-text">L'apatheia — non pas l'indifférence, mais la maîtrise absolue des passions qui corrompent le jugement. Le sage ressent ; il ne subit pas.</p></div>
+        <div class="loi-exercice"><p class="loi-exercice-label">Exercice racine — Prosochè</p><p class="loi-exercice-text">En temps réel, surveille tes propres jugements. Quand une émotion monte, nomme-la. Identifie le jugement qui la produit. Tu retrouves immédiatement ta souveraineté.</p></div>
+      </div>
+    </div>
+    <p class="niveau-header monde reveal">Niveau II — Le Monde · Ce que tu dois quand tu vois plus loin que les autres</p>
+    <div class="loi-detail-block reveal">
+      <div class="loi-detail-header"><span class="loi-detail-num">Loi V</span><h2 class="loi-detail-title">Il observe depuis les hauteurs. Il agit pour le bas.</h2></div>
+      <div class="loi-detail-body">
+        <p class="loi-detail-text">L'Aigle ne monte pas pour fuir. Il monte pour voir — puis pour descendre et agir avec précision. La perspective élevée est une responsabilité, pas un privilège. Celui qui voit plus loin doit plus.</p>
+        <p class="loi-detail-text">Pas plus de gloire. Plus de service. La vue de haut sans l'action en bas est de la contemplation vide. L'élévation sans retour est de l'abandon.</p>
+        <div class="loi-racine"><p class="loi-racine-label">Racine stoïcienne</p><p class="loi-racine-text">La cosmopolis — nous sommes citoyens du monde avant d'être citoyens de nos propres ambitions. La perspective élevée génère une dette envers ceux qui ne l'ont pas.</p></div>
+        <div class="loi-exercice"><p class="loi-exercice-label">Exercice racine — Melete Thanatou</p><p class="loi-exercice-text">Hebdomadairement, contemple une figure historique au sommet de sa puissance — puis sa disparition totale. Depuis ce cadre : qu'est-ce qui mérite vraiment ton énergie cette semaine ?</p></div>
+      </div>
+    </div>
+    <div class="loi-detail-block reveal">
+      <div class="loi-detail-header"><span class="loi-detail-num">Loi VI</span><h2 class="loi-detail-title">Il construit dans l'ombre. Pour que d'autres marchent dans la lumière.</h2></div>
+      <div class="loi-detail-body">
+        <p class="loi-detail-text">Le Ghost ne cherche pas la reconnaissance de son oeuvre. Il cherche la solidité de son oeuvre. Ce qui est construit dans le silence dure. Ce qui est construit pour être vu s'effondre dès que le regard se détourne.</p>
+        <p class="loi-detail-text">La discrétion n'est pas de la modestie — c'est de la discipline. Construire pour les autres sans attendre de retour : c'est ça, la liberté stoïcienne appliquée au monde.</p>
+        <div class="loi-racine"><p class="loi-racine-label">Racine stoïcienne</p><p class="loi-racine-text">Marc Aurèle gouvernait un empire de 60 millions d'âmes en écrivant pour personne d'autre que lui-même. Le travail dans l'ombre comme acte de liberté ultime.</p></div>
+        <div class="loi-exercice"><p class="loi-exercice-label">Exercice racine — Hypomnemata</p><p class="loi-exercice-text">Réécris ces six lois à la main régulièrement. Pas pour t'en souvenir — pour les inscrire. Marc Aurèle réécrivait les mêmes principes des dizaines de fois. Ce n'est pas de la répétition : c'est de la gravure.</p></div>
+      </div>
+    </div>
+  </div>
+  <footer><p>Morale de Ghost — Doctrine Personnelle — Aurelius Secundus — MMXXVI</p></footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

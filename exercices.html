@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Exercices Spirituels — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .hadot-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); margin-bottom: var(--spacing-xl); }
+    .hadot-text { font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; max-width: 640px; }
+    .hadot-source { margin-top: var(--spacing-md); font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    .tableau-synthese { background: var(--noir-soft); border: 1px solid rgba(232,224,208,0.06); margin-bottom: var(--spacing-xl); overflow: hidden; }
+    .tableau-header { display: grid; grid-template-columns: 200px 140px 1fr; padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(232,224,208,0.08); }
+    .tableau-header span { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    .tableau-row { display: grid; grid-template-columns: 200px 140px 1fr; padding: var(--spacing-md) var(--spacing-lg); border-bottom: 1px solid rgba(232,224,208,0.04); transition: background var(--transition); }
+    .tableau-row:last-child { border-bottom: none; }
+    .tableau-row:hover { background: rgba(107,63,160,0.04); }
+    .tableau-row .t-nom { font-family: var(--font-head); font-size: 0.7rem; letter-spacing: 0.15em; color: var(--pierre); text-transform: uppercase; }
+    .tableau-row .t-quand { font-family: var(--font-body); font-size: 0.85rem; font-style: italic; color: var(--pourpre-glow); }
+    .tableau-row .t-fonction { font-family: var(--font-body); font-size: 0.9rem; color: var(--pierre-dim); }
+    .exercice-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .exercice-header { display: flex; align-items: baseline; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg); }
+    .exercice-num { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); white-space: nowrap; }
+    .exercice-name { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; }
+    .exercice-greek { font-family: var(--font-body); font-style: italic; color: var(--pierre-mute); font-size: 0.85rem; margin-left: var(--spacing-sm); }
+    .exercice-body { padding-left: calc(100px + var(--spacing-lg)); }
+    .exercice-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; }
+    .exercice-pratique { background: var(--noir-soft); border: 1px solid rgba(232,224,208,0.06); border-left: 2px solid var(--pourpre-dim); padding: var(--spacing-lg); margin-top: var(--spacing-md); }
+    .exercice-pratique-label { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .exercice-pratique-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.7; }
+    .exercice-loi { margin-top: var(--spacing-md); font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    .exercice-loi span { color: var(--pourpre-glow); }
+    @media (max-width: 768px) {
+      .tableau-header, .tableau-row { grid-template-columns: 1fr 1fr; }
+      .tableau-header span:last-child, .tableau-row .t-fonction { display: none; }
+      .exercice-body { padding-left: 0; margin-top: var(--spacing-md); }
+      .exercice-header { flex-direction: column; gap: var(--spacing-xs); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html" class="active">Exercices</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+  <div class="page-hero">
+    <p class="page-hero-label">V — Exercices Spirituels</p>
+    <h1 class="page-hero-title">Pratiquer,<br>pas seulement penser</h1>
+    <p class="page-hero-intro">La philosophie antique n'était pas un système de pensée. C'était un ensemble de pratiques quotidiennes pour transformer l'être.</p>
+  </div>
+  <div class="content-block">
+    <div class="hadot-block reveal">
+      <p class="hadot-text">Pierre Hadot a montré ce que l'académie avait oublié : les Anciens avaient des protocoles précis. Ce n'était pas de la théorie. C'était de l'entraînement. Comme un athlète forge son corps, le philosophe stoïcien forgeait son âme — par des exercices quotidiens répétés jusqu'à l'incarnation complète.</p>
+      <p class="hadot-source">— Pierre Hadot, Exercices spirituels et philosophie antique</p>
+    </div>
+    <p class="section-label reveal">Tableau de synthèse</p>
+    <div class="tableau-synthese reveal">
+      <div class="tableau-header"><span>Exercice</span><span>Quand</span><span>Fonction</span></div>
+      <div class="tableau-row"><span class="t-nom">Prosochè</span><span class="t-quand">En continu</span><span class="t-fonction">Vigilance intérieure en temps réel</span></div>
+      <div class="tableau-row"><span class="t-nom">Melete Thanatou</span><span class="t-quand">Chaque matin</span><span class="t-fonction">Recalibrage radical par la mort</span></div>
+      <div class="tableau-row"><span class="t-nom">Sympatheia</span><span class="t-quand">Face aux autres</span><span class="t-fonction">Détachement juste sans froideur</span></div>
+      <div class="tableau-row"><span class="t-nom">Hypomnemata</span><span class="t-quand">Régulièrement</span><span class="t-fonction">Inscription des principes dans l'être</span></div>
+      <div class="tableau-row"><span class="t-nom">Praemeditatio</span><span class="t-quand">Avant l'action</span><span class="t-fonction">Inoculation à l'échec et à la peur</span></div>
+      <div class="tableau-row"><span class="t-nom">Kathèkon</span><span class="t-quand">Chaque instant</span><span class="t-fonction">Action juste et précise dans le moment</span></div>
+    </div>
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">Les six exercices</p>
+    <div class="exercice-block reveal">
+      <div class="exercice-header"><span class="exercice-num">01</span><h2 class="exercice-name">Prosochè <span class="exercice-greek">L'attention à soi</span></h2></div>
+      <div class="exercice-body">
+        <p class="exercice-text">C'est l'exercice central. Le fondement de tout. Une vigilance permanente sur ses propres pensées, jugements et désirs — en temps réel. Pas en soirée lors de l'examen de conscience. Maintenant. Dans l'instant.</p>
+        <p class="exercice-text">Épictète l'enseignait comme un entraînement militaire : surveille-toi toi-même comme un ennemi en embuscade. C'est l'Aigle appliqué à soi-même. Tu t'observes vivre, en temps réel, depuis une altitude intérieure.</p>
+        <div class="exercice-pratique"><p class="exercice-pratique-label">Pratique concrète</p><p class="exercice-pratique-text">Quand une émotion monte — irritation, anxiété, orgueil — arrête-toi une seconde. Nomme-la. Identifie le jugement qui la produit. Ce jugement dépend-il de toi ? Tu retrouves immédiatement ta souveraineté.</p></div>
+        <p class="exercice-loi">Ancre la — <span>Loi IV</span> — Il maîtrise son monde intérieur</p>
+      </div>
+    </div>
+    <div class="exercice-block reveal">
+      <div class="exercice-header"><span class="exercice-num">02</span><h2 class="exercice-name">Melete Thanatou <span class="exercice-greek">Méditation sur la mort</span></h2></div>
+      <div class="exercice-body">
+        <p class="exercice-text">Pas le memento mori décoratif. La vraie pratique. Marc Aurèle ne pensait pas à la mort abstraitement — il visualisait des morts précises. Des empereurs, des philosophes, des hommes puissants. Où sont-ils maintenant ?</p>
+        <p class="exercice-text">Ce n'est pas du nihilisme. C'est un outil de recalibrage radical. Face à n'importe quelle ambition gonflée, n'importe quel ego blessé — la mort remet tout à l'échelle juste.</p>
+        <div class="exercice-pratique"><p class="exercice-pratique-label">Pratique concrète</p><p class="exercice-pratique-text">Chaque matin : choisis une figure historique puissante. Visualise sa grandeur au sommet. Puis sa disparition totale. Puis demande-toi : dans ce cadre, qu'est-ce qui mérite vraiment mon énergie aujourd'hui ?</p></div>
+        <p class="exercice-loi">Ancre la — <span>Loi V</span> — Il observe depuis les hauteurs</p>
+      </div>
+    </div>
+    <div class="exercice-block reveal">
+      <div class="exercice-header"><span class="exercice-num">03</span><h2 class="exercice-name">Sympatheia <span class="exercice-greek">L'interconnexion universelle</span></h2></div>
+      <div class="exercice-body">
+        <p class="exercice-text">L'exercice le moins connu. Le plus puissant politiquement. La contemplation que tout est relié — pas comme une métaphore, comme une réalité physique stoïcienne. Le Logos traverse tout. Toi, les autres, le cosmos — une seule trame.</p>
+        <p class="exercice-text">Marc Aurèle le pratiquait comme exercice de compassion forcée : commence chaque matin en te disant que tu rencontreras des gens ingrats, arrogants, intrusifs. Mais ils font partie du même Logos. Comprendre sans excuser. Voir sans subir.</p>
+        <div class="exercice-pratique"><p class="exercice-pratique-label">Pratique concrète</p><p class="exercice-pratique-text">Face à quelqu'un qui t'irrite : avant de réagir, demande-toi pourquoi ils agissent ainsi. Quelle peur, quelle ignorance, quelle douleur produit ce comportement ? Tu ne les excuses pas — tu ne gaspilles plus ton énergie en réaction inutile.</p></div>
+        <p class="exercice-loi">Ancre la — <span>Loi II</span> — Il cherche la justesse, pas l'approbation</p>
+      </div>
+    </div>
+    <div class="exercice-block reveal">
+      <div class="exercice-header"><span class="exercice-num">04</span><h2 class="exercice-name">Hypomnemata <span class="exercice-greek">Le carnet philosophique</span></h2></div>
+      <div class="exercice-body">
+        <p class="exercice-text">C'est ce que Marc Aurèle pratiquait. Mais pas comme on le croit. Les hypomnemata n'étaient pas des journaux d'états d'âme — c'étaient des carnets où on collectait des principes, des maximes, des formulations philosophiques qu'on réécrivait de sa main pour les intérioriser.</p>
+        <p class="exercice-text">Marc Aurèle réécrit les mêmes idées des dizaines de fois dans les Méditations. Ce n'est pas de la répétition — c'est de l'inscription. Écrire pour graver dans la chair de l'esprit.</p>
+        <div class="exercice-pratique"><p class="exercice-pratique-label">Pratique concrète</p><p class="exercice-pratique-text">Réécris les Six Lois à la main, régulièrement. Pas pour t'en souvenir — pour les inscrire. Réécris aussi les principes qui ont compté dans la semaine. La main graveuse transforme la lecture en incarnation.</p></div>
+        <p class="exercice-loi">Ancre la — <span>Loi VI</span> — Il construit dans l'ombre</p>
+      </div>
+    </div>
+    <div class="exercice-block reveal">
+      <div class="exercice-header"><span class="exercice-num">05</span><h2 class="exercice-name">Praemeditatio Malorum <span class="exercice-greek">Préméditation des maux</span></h2></div>
+      <div class="exercice-body">
+        <p class="exercice-text">Sénèque la décrit le mieux : praemeditare mala. Avant un projet, une décision, une journée — visualise le pire scénario possible avec le maximum de détail. Ressens-le. Puis demande-toi : est-ce que je survivrais à ça ? La réponse est presque toujours oui.</p>
+        <p class="exercice-text">Ce n'est pas du pessimisme. C'est de l'inoculation. Marc Aurèle partait en campagne militaire en ayant déjà visualisé sa défaite, sa mort, la chute de Rome. Pas pour se décourager — pour agir librement, sans que la peur de l'échec gouverne ses décisions.</p>
+        <div class="exercice-pratique"><p class="exercice-pratique-label">Pratique concrète</p><p class="exercice-pratique-text">Avant chaque projet important : écris le pire scénario plausible. Pas de façon abstraite — en détail. Ressens-le vraiment. Puis pose-toi la question : survivrais-je à ça ? Depuis cette réponse, agis sans la peur comme gouvernante.</p></div>
+        <p class="exercice-loi">Ancre la — <span>Loi III</span> — L'adversité est sa matière première</p>
+      </div>
+    </div>
+    <div class="exercice-block reveal">
+      <div class="exercice-header"><span class="exercice-num">06</span><h2 class="exercice-name">Kathèkon <span class="exercice-greek">L'action appropriée</span></h2></div>
+      <div class="exercice-body">
+        <p class="exercice-text">L'exercice le plus quotidien. Le moins spectaculaire. Le plus important. À chaque instant, dans chaque situation, identifier et accomplir l'action appropriée — ni plus, ni moins. Pas l'action parfaite. L'action juste pour ce moment précis.</p>
+        <p class="exercice-text">Zénon l'appelait le devoir qui convient. Ce n'est pas un idéal inaccessible. C'est la prochaine bonne chose à faire, maintenant. C'est le pont entre la contemplation et l'action. L'Aigle voit haut — le kathèkon lui dit quoi faire une fois redescendu.</p>
+        <div class="exercice-pratique"><p class="exercice-pratique-label">Pratique concrète</p><p class="exercice-pratique-text">Face à chaque situation : quelle est la prochaine action juste ? Une seule. Précise. Proportionnelle. Sans excès, sans défaut. Accomplis-la. Puis pose la même question pour la suivante. C'est tout le stoïcisme appliqué à la vie quotidienne.</p></div>
+        <p class="exercice-loi">Ancre la — <span>Loi I</span> — Le Ghost agit. Il n'annonce pas.</p>
+      </div>
+    </div>
+  </div>
+  <footer><p>Morale de Ghost — Doctrine Personnelle — Aurelius Secundus — MMXXVI</p></footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

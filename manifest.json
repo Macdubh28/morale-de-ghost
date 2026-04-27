@@ -1,0 +1,22 @@
+{
+  "name": "Morale de Ghost",
+  "short_name": "Ghost",
+  "description": "Doctrine personnelle — Aurelius Secundus",
+  "start_url": "/morale-de-ghost/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
