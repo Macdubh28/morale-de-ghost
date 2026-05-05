@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>La Relation à l'Autre — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .relation-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .relation-greek { font-family: var(--font-title); font-size: clamp(3rem, 8vw, 6rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .relation-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .relation-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .cercles-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; text-align: center; }
+    .cercles-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .cercles-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .cercles-viz { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-sm); margin: var(--spacing-lg) 0; }
+    .cercle-item { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pierre-mute); padding: var(--spacing-sm) var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); }
+    .cercle-item.centre { border-color: rgba(107,63,160,0.3); color: var(--pourpre-glow); }
+    .cercles-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+    .postures-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .posture-item { padding: var(--spacing-lg); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); }
+    .posture-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .posture-title { font-family: var(--font-head); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .posture-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .marc-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .marc-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .marc-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .marc-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .exercice-block { padding: var(--spacing-xl) 0; }
+    .exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .exercice-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .question-centrale { text-align: center; padding: var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); margin: var(--spacing-lg) 0; }
+    .question-text { font-family: var(--font-title); font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--pierre); font-style: italic; line-height: 1.7; }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    .final-citation { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid rgba(232,224,208,0.05); }
+    .final-citation-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 600px; margin: 0 auto var(--spacing-md); }
+    .final-citation-author { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    @media (max-width: 768px) { .postures-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html">Melete Thanatou</a></li>
+      <li><a href="corps.html">Le Corps</a></li>
+      <li><a href="economia.html">L'Economia</a></li>
+      <li><a href="silence.html">Le Silence</a></li>
+      <li><a href="relation.html" class="active">L'Autre</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">XII — La Relation à l'Autre</p>
+    <h1 class="page-hero-title">Ni fusion<br>ni indifférence</h1>
+    <p class="page-hero-intro">Aimer sans dépendre. S'engager sans se perdre.</p>
+  </div>
+
+  <div class="content-block">
+
+    <div class="relation-central reveal">
+      <span class="relation-greek">φιλία</span>
+      <p class="relation-def">Philia — L'amour juste · Lien sans dépendance · Présence sans fusion</p>
+      <p class="relation-text">Le stoïcisme n'enseigne pas l'indifférence aux autres. Il enseigne à aimer sans en faire une dépendance. Entre l'amour vrai et l'attachement pathologique, il y a exactement cette différence.</p>
+    </div>
+
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">I — Le malentendu</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Le stoïcisme n'est pas de l'indifférence</h2>
+      <p class="concept-text">On imagine le sage stoïcien comme un homme seul, froid, impénétrable. C'est une caricature. Les plus grands stoïciens avaient des amis intimes, des familles, des élèves qu'ils aimaient profondément.</p>
+      <p class="concept-text">Ce que le stoïcisme enseigne, c'est d'aimer sans en faire une dépendance. La citadelle intérieure n'est pas une prison — c'est la base depuis laquelle on peut s'engager pleinement sans risquer de se perdre.</p>
+    </div>
+
+    <p class="section-label reveal">II — Les cercles d'Hiéroclès</p>
+    <div class="cercles-block reveal">
+      <p class="cercles-label">Hiéroclès — La Cosmopolis commence avec soi</p>
+      <h2 class="cercles-title">Rapprocher les cercles</h2>
+      <div class="cercles-viz">
+        <div class="cercle-item">L'humanité entière</div>
+        <div class="cercle-item">Les concitoyens</div>
+        <div class="cercle-item">Les amis</div>
+        <div class="cercle-item">La famille proche</div>
+        <div class="cercle-item centre">Soi-même</div>
+      </div>
+      <p class="cercles-text">La sagesse stoïcienne ne consiste pas à se replier sur le centre — elle consiste à rapprocher les cercles extérieurs. À traiter l'étranger avec la même considération qu'un proche. La Sympatheia en action.</p>
+    </div>
+
+    <p class="section-label reveal">III — Les trois postures</p>
+    <div class="concept-block reveal">
+      <div class="postures-grid">
+        <div class="posture-item">
+          <p class="posture-num">Posture 01</p>
+          <p class="posture-title">Avec les proches</p>
+          <p class="posture-text">Aimer pleinement, sans condition. Mais sans oublier que l'autre est libre — pas une extension de toi. Ce qui t'a été donné peut être repris. L'aimer n'implique pas de le posséder.</p>
+        </div>
+        <div class="posture-item">
+          <p class="posture-num">Posture 02</p>
+          <p class="posture-title">Avec les difficiles</p>
+          <p class="posture-text">Ils agissent par ignorance, pas par malice essentielle. Se rappeler cela ne les excuse pas — cela te protège de la haine inutile qui t'épuise sans les changer.</p>
+        </div>
+        <div class="posture-item">
+          <p class="posture-num">Posture 03</p>
+          <p class="posture-title">Avec l'humanité</p>
+          <p class="posture-text">Chaque homme porte une parcelle du Logos. Ne jamais déshumaniser. Même l'adversaire reste un homme. Même le plus difficile mérite d'être compris avant d'être jugé.</p>
+        </div>
+      </div>
+      <blockquote class="fig-citation" style="margin-top: var(--spacing-lg);">
+        Ne dis jamais de quelqu'un : je l'ai perdu. Dis : je l'ai rendu.
+        <cite class="fig-cite">— Épictète, Manuel</cite>
+      </blockquote>
+    </div>
+
+    <p class="section-label reveal">IV — Racine stoïcienne</p>
+    <div class="marc-block reveal">
+      <p class="marc-label">Racine stoïcienne — Marc Aurèle</p>
+      <h2 class="marc-title">Gouverner les hommes qui le blessent</h2>
+      <p class="marc-text">Marc Aurèle gouvernait un empire. Il était constamment trahi, flatté, manipulé. Et pourtant ses <em>Pensées</em> reviennent sans cesse sur la nécessité de ne pas haïr, de comprendre, de continuer à servir.</p>
+      <blockquote class="fig-citation">
+        Commence chaque jour en te disant : aujourd'hui je rencontrerai des indiscrets, des ingrats, des arrogants. Mais ils sont ainsi parce qu'ils ne distinguent pas le bien du mal.
+        <cite class="fig-cite">— Marc Aurèle, Pensées, II.1</cite>
+      </blockquote>
+      <p class="marc-text" style="margin-top: var(--spacing-lg);">Ce n'est pas de la naïveté. C'est de la lucidité désarmée. Il sait ce qu'il va rencontrer. Il choisit de ne pas en être détruit.</p>
+    </div>
+
+    <p class="section-label reveal">V — La doctrine Ghost</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">S'engager sans se perdre</h2>
+      <p class="concept-text">Le Ghost n'est pas un ermite. Il a des proches qu'il aime, des causes qu'il sert, des personnes envers qui il s'engage pleinement. Mais il entre dans chaque relation avec sa citadelle intacte.</p>
+      <p class="concept-text">Ce qu'il donne, il le choisit. Ce qu'il protège, il le sait. Il ne se perd pas dans l'autre parce qu'il sait où il est. La relation juste n'exige pas qu'on s'efface — elle exige qu'on soit pleinement présent.</p>
+    </div>
+
+    <p class="section-label reveal">VI — Exercice racine</p>
+    <div class="exercice-block reveal">
+      <p class="exercice-label">Exercice — La lettre qui ne sera pas envoyée</p>
+      <h2 class="exercice-title">La lettre qui ne sera pas envoyée</h2>
+      <p class="concept-text">Pense à quelqu'un qui t'a blessé ou déçu. Écris-lui une lettre complète. Dis tout — ce que tu ressens, ce que tu aurais voulu qu'il fasse différemment, ce que ça t'a coûté.</p>
+      <p class="concept-text">Puis, avant de la relire, pose-toi une question.</p>
+      <div class="question-centrale">
+        <p class="question-text">« Quelle part de ce que j'ai écrit vient de ce qu'il a fait —<br>et quelle part vient de ce que j'attendais qu'il fasse ? »</p>
+      </div>
+      <p class="concept-text">Ne l'envoie pas. Brûle-la ou déchire-la. L'exercice n'est pas pour lui. Il est pour toi.</p>
+    </div>
+
+    <div class="final-citation reveal">
+      <p class="final-citation-text">« Aimer sans dépendre.<br>S'engager sans se perdre.<br>Servir sans s'oublier. »</p>
+      <p class="final-citation-author">— Aurelius Secundus</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
