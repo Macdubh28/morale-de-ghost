@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Le Silence — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .silence-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .silence-symbol { font-family: var(--font-title); font-size: clamp(3rem, 8vw, 6rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .silence-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .silence-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .fonctions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .fonction-item { padding: var(--spacing-lg); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); }
+    .fonction-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .fonction-title { font-family: var(--font-head); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .fonction-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .zenon-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .zenon-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .zenon-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .zenon-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .aigle-block { padding: var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); margin: var(--spacing-xl) 0; text-align: center; }
+    .aigle-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .aigle-text { font-family: var(--font-title); font-size: clamp(1.2rem, 3vw, 2rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 500px; margin: 0 auto; }
+    .exercice-block { padding: var(--spacing-xl) 0; }
+    .exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .exercice-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .regle-centrale { text-align: center; padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); margin: var(--spacing-lg) 0; }
+    .regle-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--pierre); font-style: italic; line-height: 1.7; }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    .final-citation { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid rgba(232,224,208,0.05); }
+    .final-citation-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 600px; margin: 0 auto var(--spacing-md); }
+    .final-citation-author { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    @media (max-width: 768px) { .fonctions-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html">Melete Thanatou</a></li>
+      <li><a href="corps.html">Le Corps</a></li>
+      <li><a href="economia.html">L'Economia</a></li>
+      <li><a href="silence.html" class="active">Le Silence</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">XI — Le Silence stratégique</p>
+    <h1 class="page-hero-title">La parole<br>comme acte</h1>
+    <p class="page-hero-intro">Ce qui n'est pas dit ne peut pas être retourné contre toi.</p>
+  </div>
+
+  <div class="content-block">
+
+    <div class="silence-central reveal">
+      <span class="silence-symbol">σιγή</span>
+      <p class="silence-def">Sigè — Le silence · Présence sans bruit · Discipline de la parole</p>
+      <p class="silence-text">Le silence ordinaire est un vide. Le silence stratégique est une présence. Ce n'est pas l'incapacité à parler — c'est le choix de ne pas parler. Le monde récompense le bruit. Le Ghost a compris l'inverse.</p>
+    </div>
+
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">I — Le silence n'est pas l'absence</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Une présence, pas un vide</h2>
+      <p class="concept-text">Celui qui parle fort, souvent, partout — semble exister. Le Ghost a compris l'inverse : celui qui parle peu et juste exerce une autorité que le bruit ne peut pas atteindre.</p>
+      <p class="concept-text">Le silence stratégique n'est pas de l'indifférence. Il n'est pas de la lâcheté. Il n'est pas de la froideur calculée. C'est une discipline — comme le jeûne pour le corps. On se prive temporairement de quelque chose pour renforcer quelque chose de plus essentiel.</p>
+    </div>
+
+    <p class="section-label reveal">II — Les trois fonctions du silence</p>
+    <div class="concept-block reveal">
+      <div class="fonctions-grid">
+        <div class="fonction-item">
+          <p class="fonction-num">Fonction 01</p>
+          <p class="fonction-title">Espace de pensée</p>
+          <p class="fonction-text">Celui qui remplit immédiatement le vide par des mots prive sa pensée du temps dont elle a besoin. Le silence est la salle où la raison travaille.</p>
+        </div>
+        <div class="fonction-item">
+          <p class="fonction-num">Fonction 02</p>
+          <p class="fonction-title">Position de force</p>
+          <p class="fonction-text">La parole est une révélation — elle montre ce qu'on sait, ce qu'on craint, ce qu'on veut. Le silence ne révèle rien. Il observe. Il protège.</p>
+        </div>
+        <div class="fonction-item">
+          <p class="fonction-num">Fonction 03</p>
+          <p class="fonction-title">Résistance à l'urgence</p>
+          <p class="fonction-text">Le silence stratégique est le refus de l'urgence artificielle de réponse. La réponse viendra — au moment choisi, pas au moment subi.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">III — Racine stoïcienne</p>
+    <div class="zenon-block reveal">
+      <p class="zenon-label">Racine stoïcienne — Zénon de Kition</p>
+      <h2 class="zenon-title">Le fondateur silencieux</h2>
+      <p class="zenon-text">Zénon, le fondateur du stoïcisme, était connu pour sa parcimonie verbale. Un roi lui demandant pourquoi il parlait si peu, il répondit simplement.</p>
+      <blockquote class="fig-citation">
+        J'ai deux oreilles et une seule bouche.
+        <cite class="fig-cite">— Zénon de Kition</cite>
+      </blockquote>
+      <p class="zenon-text" style="margin-top: var(--spacing-lg);">Épictète enseignait que la première discipline n'était pas la parole — mais l'écoute. Marc Aurèle revient constamment sur la nécessité de retenir la langue — non par timidité, mais par souci de n'émettre que ce qui est juste et nécessaire.</p>
+    </div>
+
+    <p class="section-label reveal">IV — La doctrine Ghost</p>
+    <div class="aigle-block reveal">
+      <p class="aigle-label">IV — La doctrine Ghost</p>
+      <p class="aigle-text">L'aigle est silencieux avant de fondre. Il observe depuis la hauteur. Il calcule. Il agit en un seul mouvement décisif. Il ne crie pas pour intimider — il frappe pour résoudre.</p>
+    </div>
+    <div class="concept-block reveal">
+      <p class="concept-text">Le Ghost opère de la même façon. Silence d'abord. Observation. Puis — quand la parole ou l'action est nécessaire — elle arrive avec le poids de tout ce qui n'a pas été dit avant.</p>
+      <p class="concept-text">C'est pour ça que la parole du Ghost compte. Parce qu'elle est rare. Parce qu'elle est choisie. Parce qu'elle vient après le silence, pas à sa place.</p>
+    </div>
+
+    <p class="section-label reveal">V — Exercice racine</p>
+    <div class="exercice-block reveal">
+      <p class="exercice-label">Exercice — La journée de l'écoute</p>
+      <h2 class="exercice-title">La journée de l'écoute</h2>
+      <p class="concept-text">Choisis une journée. Dans toutes les conversations, une seule règle.</p>
+      <div class="regle-centrale">
+        <p class="regle-text">« Parler en dernier.<br>Laisser l'autre finir.<br>Laisser un silence s'installer.<br>Puis — seulement si nécessaire — répondre. »</p>
+      </div>
+      <p class="concept-text">Observe ce qui change. Observe ce que tu entends que tu n'entendais pas avant. Observe ce que l'autre révèle quand tu lui laisses l'espace de finir vraiment sa pensée.</p>
+      <p class="concept-text">Note le soir : qu'est-ce que le silence t'a appris aujourd'hui que les mots t'auraient caché ?</p>
+    </div>
+
+    <div class="final-citation reveal">
+      <p class="final-citation-text">« L'aigle n'annonce pas son vol. »</p>
+      <p class="final-citation-author">— Aurelius Secundus</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
