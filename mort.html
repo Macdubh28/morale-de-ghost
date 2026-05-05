@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Melete Thanatou — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .mort-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .mort-greek { font-family: var(--font-title); font-size: clamp(3rem, 8vw, 6rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .mort-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .mort-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .usages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .usage-item { padding: var(--spacing-lg); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); }
+    .usage-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .usage-title { font-family: var(--font-head); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .usage-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .marc-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .marc-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .marc-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .marc-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .exercice-block { padding: var(--spacing-xl) 0; }
+    .exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .exercice-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .question-centrale { text-align: center; padding: var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); margin: var(--spacing-lg) 0; }
+    .question-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--pierre); font-style: italic; line-height: 1.7; }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    .final-citation { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid rgba(232,224,208,0.05); }
+    .final-citation-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 600px; margin: 0 auto var(--spacing-md); }
+    .final-citation-author { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    @media (max-width: 768px) { .usages-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html" class="active">Melete Thanatou</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">VIII — Melete Thanatou</p>
+    <h1 class="page-hero-title">La mort<br>comme outil de clarté</h1>
+    <p class="page-hero-intro">Mourir bien, c'est avoir vécu juste.</p>
+  </div>
+
+  <div class="content-block">
+
+    <div class="mort-central reveal">
+      <span class="mort-greek">μελέτη</span>
+      <p class="mort-def">Melete Thanatou — Méditation sur la mort · Filtre de clarté · Révélateur du réel</p>
+      <p class="mort-text">La méditation sur la mort n'est pas un exercice morbide. C'est l'outil de précision le plus puissant du stoïcisme. Là où tout le reste peut mentir, la mort dit toujours la vérité.</p>
+    </div>
+
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">I — Le malentendu</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Ce n'est pas une obsession morbide</h2>
+      <p class="concept-text">La <em>Melete Thanatou</em> est le plus mal compris des exercices stoïciens. On l'imagine sombre, paralysante, nihiliste. C'est exactement l'inverse.</p>
+      <p class="concept-text">Les Stoïciens ne méditaient pas sur la mort pour se déprimer. Ils le faisaient pour se réveiller. La mort n'est pas une fin à craindre — c'est un miroir qui révèle ce qui compte vraiment, maintenant, aujourd'hui.</p>
+    </div>
+
+    <p class="section-label reveal">II — Le principe</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">La mort comme filtre</h2>
+      <p class="concept-text">Chaque matin, Marc Aurèle se posait une question avant de se lever : <em>"Si c'était le dernier jour, est-ce que ce que je m'apprête à faire mérite d'être fait ?"</em></p>
+      <p class="concept-text">Ce n'est pas du pessimisme. C'est la clarté absolue. La mort élimine le superflu avec une précision chirurgicale. Ce qui résiste à ce filtre — ce qui reste important même face à la mort — voilà ce qui mérite ton énergie.</p>
+      <blockquote class="fig-citation">
+        Perds cette heure, et tu l'as perdue pour toujours.
+        <cite class="fig-cite">— Marc Aurèle, Pensées</cite>
+      </blockquote>
+    </div>
+
+    <p class="section-label reveal">III — Les trois usages</p>
+    <div class="concept-block reveal">
+      <div class="usages-grid">
+        <div class="usage-item">
+          <p class="usage-num">Usage 01</p>
+          <p class="usage-title">Clarifier les priorités</p>
+          <p class="usage-text">Face à une décision difficile : <em>"Dans dix ans, sur mon lit de mort, lequel de ces choix aurai-je regretté ?"</em> La réponse vient souvent en quelques secondes.</p>
+        </div>
+        <div class="usage-item">
+          <p class="usage-num">Usage 02</p>
+          <p class="usage-title">Dissoudre les peurs mineures</p>
+          <p class="usage-text">La peur du regard des autres, la peur de l'échec, la peur du ridicule — elles disparaissent face à la mort. Elles révèlent leur vraie nature : des constructions mentales sans poids réel.</p>
+        </div>
+        <div class="usage-item">
+          <p class="usage-num">Usage 03</p>
+          <p class="usage-title">Amplifier la présence</p>
+          <p class="usage-text">Savoir que ce moment ne reviendra pas le rend plus dense. Pas d'urgence anxieuse — une présence plus pleine. Ce repas, cette conversation, ce silence — une seule fois.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">IV — Racine stoïcienne</p>
+    <div class="marc-block reveal">
+      <p class="marc-label">Racine stoïcienne — Marc Aurèle &amp; Sénèque</p>
+      <h2 class="marc-title">Le memento mori quotidien</h2>
+      <p class="marc-text">Marc Aurèle revenait constamment sur la brièveté de la vie — non par désespoir, mais pour ne jamais se laisser endormir par la routine. L'empire pouvait attendre. Pas sa propre âme.</p>
+      <p class="marc-text">Sénèque dans les <em>Lettres à Lucilius</em> : toute sa correspondance est une méditation sur le temps qui passe et la nécessité d'agir maintenant, pas demain. Chaque lettre est écrite comme si c'était la dernière.</p>
+      <blockquote class="fig-citation">
+        Omnia aliena sunt, tempus tantum nostrum est.
+        <cite class="fig-cite">— Sénèque · Tout est étranger, le temps seul nous appartient</cite>
+      </blockquote>
+    </div>
+
+    <p class="section-label reveal">V — La doctrine Ghost</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Vivre comme si c'était la dernière fois — pas comme si c'était la première</h2>
+      <p class="concept-text">La première fois, on est distrait par la nouveauté. La dernière fois, on est pleinement là. Le Ghost choisit la densité de la dernière fois dans chaque acte.</p>
+      <p class="concept-text">Ce n'est pas de la mélancolie. C'est de la précision.</p>
+    </div>
+
+    <p class="section-label reveal">VI — Exercice racine</p>
+    <div class="exercice-block reveal">
+      <p class="exercice-label">Exercice — Le filtre du dernier jour</p>
+      <h2 class="exercice-title">Le filtre du dernier jour</h2>
+      <p class="concept-text">Chaque matin, avant de commencer. Une seule question.</p>
+      <div class="question-centrale">
+        <p class="question-text">« Si aujourd'hui était le dernier —<br>qu'est-ce que je ferais quand même ?<br>Qu'est-ce que je laisserais tomber ? »</p>
+      </div>
+      <p class="concept-text">Ne réponds pas en liste. Laisse une seule réponse venir. Elle contient tout ce dont tu as besoin pour cette journée.</p>
+    </div>
+
+    <div class="final-citation reveal">
+      <p class="final-citation-text">« La mort n'est pas l'opposé de la vie.<br>Elle en est la mesure. »</p>
+      <p class="final-citation-author">— Aurelius Secundus</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
