@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>L'Épreuve — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .epreuve-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .epreuve-greek { font-family: var(--font-title); font-size: clamp(3rem, 8vw, 6rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .epreuve-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .epreuve-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .erreurs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .erreur-item { padding: var(--spacing-lg); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); }
+    .erreur-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .erreur-title { font-family: var(--font-head); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .erreur-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .formes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .forme-item { padding: var(--spacing-lg); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); }
+    .forme-label { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .forme-title { font-family: var(--font-head); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .forme-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .epictete-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .epictete-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .epictete-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .epictete-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .exercice-block { padding: var(--spacing-xl) 0; }
+    .exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .exercice-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .questions-list { list-style: none; padding: 0; margin: var(--spacing-lg) 0; }
+    .questions-list li { font-size: 1.05rem; color: var(--pierre-dim); line-height: 1.85; padding: var(--spacing-md) 0; border-bottom: 1px solid rgba(232,224,208,0.04); padding-left: var(--spacing-md); position: relative; }
+    .questions-list li::before { content: '—'; position: absolute; left: 0; color: var(--pourpre-dim); }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    .final-citation { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid rgba(232,224,208,0.05); }
+    .final-citation-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 600px; margin: 0 auto var(--spacing-md); }
+    .final-citation-author { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    @media (max-width: 768px) { .erreurs-grid { grid-template-columns: 1fr; } .formes-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="logos.html">Logos</a></li>
+      <li><a href="epreuve.html" class="active">L'Épreuve</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">VII — L'Épreuve comme révélateur</p>
+    <h1 class="page-hero-title">Le feu<br>qui révèle</h1>
+    <p class="page-hero-intro">Ce qui te brise te montre aussi ce que tu es.</p>
+  </div>
+
+  <div class="content-block">
+
+    <div class="epreuve-central reveal">
+      <span class="epreuve-greek">πῦρ</span>
+      <p class="epreuve-def">Pyr Basanistikon — Le feu éprouvant · La pierre de touche · Le révélateur</p>
+      <p class="epreuve-text">Les Stoïciens utilisaient une image précise : l'or ne se prouve pas dans l'écrin. Il se prouve dans le feu. Le <em>basanos</em> — en grec, la pierre de touche qui révèle la pureté du métal. L'épreuve n'est pas un accident de la vie. C'est son instrument de précision.</p>
+    </div>
+
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">I — Le Principe</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Macdubh — Fils du noir</h2>
+      <p class="concept-text">Macdubh n'est pas un nom de fatalité. C'est un nom de transformation. Ce qui t'a brisé t'a aussi révélé. L'adversité n'est pas l'ennemie de la force — elle en est la forge.</p>
+      <p class="concept-text">Ce n'est pas du stoïcisme de façade — nier la douleur n'est pas de la force, c'est de la dissociation. Le Ghost regarde l'épreuve en face, extrait ce qu'elle enseigne, et continue.</p>
+      <blockquote class="fig-citation">
+        Ce n'est pas parce que c'est difficile que nous n'osons pas — c'est parce que nous n'osons pas que c'est difficile.
+        <cite class="fig-cite">— Sénèque, Lettres à Lucilius</cite>
+      </blockquote>
+    </div>
+
+    <p class="section-label reveal">II — Les trois erreurs face à l'épreuve</p>
+    <div class="concept-block reveal">
+      <div class="erreurs-grid">
+        <div class="erreur-item">
+          <p class="erreur-num">Erreur 01</p>
+          <p class="erreur-title">Fuir</p>
+          <p class="erreur-text">Fuir l'épreuve, c'est fuir la connaissance de soi. L'homme qui évite toute friction ne sait pas ce qu'il est. Il croit se protéger — il se prive de lui-même.</p>
+        </div>
+        <div class="erreur-item">
+          <p class="erreur-num">Erreur 02</p>
+          <p class="erreur-title">Subir passivement</p>
+          <p class="erreur-text">Subir sans regarder, c'est laisser l'épreuve te traverser sans en extraire la leçon. La souffrance sans conscience ne forge pas — elle érode.</p>
+        </div>
+        <div class="erreur-item">
+          <p class="erreur-num">Erreur 03</p>
+          <p class="erreur-title">Se définir par elle</p>
+          <p class="erreur-text">L'épreuve n'est pas ton identité. Elle est ton matériau. Celui qui dit "j'ai traversé cela et voilà ce que ça a révélé" est libre. Celui qui se dit "je suis ce que j'ai souffert" reste prisonnier.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">III — La doctrine Ghost</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">L'épreuve est un miroir, pas une punition</h2>
+      <p class="concept-text">Le Ghost ne demande pas pourquoi l'épreuve arrive. Il demande : <em>qu'est-ce qu'elle révèle ?</em></p>
+      <p class="concept-text">Pas de victimisation. Pas de résignation. Une lecture lucide de ce que l'adversité met à nu — les failles, les forces, les illusions — et une action juste à partir de cette lecture.</p>
+    </div>
+
+    <p class="section-label reveal">IV — Les trois formes d'épreuve</p>
+    <div class="concept-block reveal">
+      <div class="formes-grid">
+        <div class="forme-item">
+          <p class="forme-label">Forme I</p>
+          <p class="forme-title">Épreuve du corps</p>
+          <p class="forme-text">La maladie, la blessure, la fatigue. Elle révèle ta relation à la matière. Est-ce que tu es ton corps, ou tu l'habites ?</p>
+        </div>
+        <div class="forme-item">
+          <p class="forme-label">Forme II</p>
+          <p class="forme-title">Épreuve du monde</p>
+          <p class="forme-text">L'échec, la trahison, la perte. Elle révèle ta relation aux choses extérieures. Est-ce que tu dépends du monde pour te tenir debout ?</p>
+        </div>
+        <div class="forme-item">
+          <p class="forme-label">Forme III</p>
+          <p class="forme-title">Épreuve de toi-même</p>
+          <p class="forme-text">Le doute, la lâcheté intérieure, la tentation de la facilité. La plus difficile. Elle révèle ce que tu es quand personne ne regarde — pas même toi.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">V — Racine stoïcienne</p>
+    <div class="epictete-block reveal">
+      <p class="epictete-label">Racine stoïcienne — Épictète</p>
+      <h2 class="epictete-title">L'esclave qui ne pouvait être brisé</h2>
+      <p class="epictete-text">Épictète était esclave. Son maître lui a brisé la jambe pour tester sa résistance. Il a regardé son maître et dit : <em>"Tu vas la casser."</em> Puis, quand elle a craqué : <em>"Je te l'avais dit."</em> Aucune plainte. Aucune panique. Juste la constatation d'un fait extérieur qui ne touchait pas l'essentiel.</p>
+      <p class="epictete-text">Ce n'est pas de l'insensibilité. C'est la démonstration absolue que ce qui compte ne peut pas être brisé de l'extérieur. La jambe appartient au monde des choses extérieures. La raison — le <em>hègemonikon</em> — reste intacte.</p>
+    </div>
+
+    <p class="section-label reveal">VI — Exercice racine</p>
+    <div class="exercice-block reveal">
+      <p class="exercice-label">Exercice — Anamnèse de l'épreuve</p>
+      <h2 class="exercice-title">Anamnèse de l'épreuve</h2>
+      <p class="concept-text">Prends l'épreuve la plus difficile que tu aies traversée. Pas la plus récente — la plus formatrice.</p>
+      <p class="concept-text">Pose-toi trois questions. Ne réponds pas vite. Laisse les réponses venir dans le silence.</p>
+      <ul class="questions-list">
+        <li>Qu'est-ce qu'elle a détruit en moi qui méritait d'être détruit ?</li>
+        <li>Qu'est-ce qu'elle a révélé que je n'aurais pas vu autrement ?</li>
+        <li>Qui serais-je si elle n'avait pas eu lieu ?</li>
+      </ul>
+      <p class="concept-text">La troisième question est la plus importante. Elle montre à quel point l'épreuve était nécessaire — pas juste supportable.</p>
+    </div>
+
+    <div class="final-citation reveal">
+      <p class="final-citation-text">« Ce qui te forge ne t'appartient pas.<br>Ce que tu en fais — si. »</p>
+      <p class="final-citation-author">— Aurelius Secundus</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
