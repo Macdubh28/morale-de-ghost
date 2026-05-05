@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Le Corps — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .corps-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .corps-greek { font-family: var(--font-title); font-size: clamp(3rem, 8vw, 6rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .corps-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .corps-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .principes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .principe-item { padding: var(--spacing-lg); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); }
+    .principe-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .principe-title { font-family: var(--font-head); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .principe-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .musonius-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .musonius-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .musonius-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .musonius-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .ghost-doctrine { padding: var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); margin: var(--spacing-xl) 0; }
+    .ghost-doctrine-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .ghost-doctrine-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .ghost-doctrine-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .exercice-block { padding: var(--spacing-xl) 0; }
+    .exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .exercice-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .journal-instruction { text-align: center; padding: var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); margin: var(--spacing-lg) 0; }
+    .journal-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--pierre); font-style: italic; line-height: 1.7; }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    .final-citation { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid rgba(232,224,208,0.05); }
+    .final-citation-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 600px; margin: 0 auto var(--spacing-md); }
+    .final-citation-author { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    @media (max-width: 768px) { .principes-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html">Melete Thanatou</a></li>
+      <li><a href="corps.html" class="active">Le Corps</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">IX — Le Corps comme terrain</p>
+    <h1 class="page-hero-title">La discipline<br>physique</h1>
+    <p class="page-hero-intro">Le sage ne méprise pas son corps. Il l'utilise.</p>
+  </div>
+
+  <div class="content-block">
+
+    <div class="corps-central reveal">
+      <span class="corps-greek">σῶμα</span>
+      <p class="corps-def">Sôma — Le corps · Premier territoire · Miroir de la discipline intérieure</p>
+      <p class="corps-text">Le corps n'est pas un ennemi à soumettre ni un temple à idolâtrer. C'est le premier champ de bataille — le plus concret, le plus immédiat, le plus honnête.</p>
+    </div>
+
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">I — Le malentendu stoïcien</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Le stoïcisme n'est pas un mépris du corps</h2>
+      <p class="concept-text">On confond souvent stoïcisme et ascétisme. Les stoïciens ne cherchaient pas à mortifier la chair. Ils cherchaient à ne pas en être esclaves. Nuance décisive.</p>
+      <p class="concept-text">Marc Aurèle s'entraînait physiquement. Épictète insistait sur la santé comme condition de la raison. Musonius Rufus enseignait que la discipline du corps était inséparable de la discipline de l'âme. Le corps n'est pas un ennemi. C'est le premier territoire à gouverner.</p>
+    </div>
+
+    <p class="section-label reveal">II — Le principe</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Le corps est le premier champ de bataille</h2>
+      <p class="concept-text">Avant de maîtriser tes émotions, tes jugements, tes réactions — tu dois maîtriser ton corps. Pas parce que le corps est inférieur. Parce qu'il est le plus concret, le plus immédiat, le plus honnête.</p>
+      <p class="concept-text">Le corps ne ment pas. Quand tu sautes une séance, tu sais pourquoi. Quand tu cèdes à la facilité, tu le sens. Le corps est un miroir de ta discipline intérieure — avant même que tu ouvres la bouche.</p>
+    </div>
+
+    <p class="section-label reveal">III — Les trois principes Ghost</p>
+    <div class="concept-block reveal">
+      <div class="principes-grid">
+        <div class="principe-item">
+          <p class="principe-num">Principe 01</p>
+          <p class="principe-title">Cohérence corps-esprit</p>
+          <p class="principe-text">Ce que tu fais à ton corps, tu le fais à ta raison. Un corps négligé installe un message dans ton système entier : <em>"la discipline s'arrête ici."</em> Un corps travaillé installe l'inverse.</p>
+        </div>
+        <div class="principe-item">
+          <p class="principe-num">Principe 02</p>
+          <p class="principe-title">L'épreuve physique comme école</p>
+          <p class="principe-text">La douleur musculaire, la fatigue maîtrisée, le dépassement volontaire — des leçons stoïciennes concrètes. Tu apprends que l'inconfort n'est pas une raison de s'arrêter.</p>
+        </div>
+        <div class="principe-item">
+          <p class="principe-num">Principe 03</p>
+          <p class="principe-title">Le corps comme signal</p>
+          <p class="principe-text">Ton niveau d'énergie, ta posture, ta respiration — ils reflètent ton état intérieur en temps réel. Le Ghost apprend à lire ces signaux comme un navigateur lit le vent.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">IV — Racine stoïcienne</p>
+    <div class="musonius-block reveal">
+      <p class="musonius-label">Racine stoïcienne — Musonius Rufus</p>
+      <h2 class="musonius-title">Le stoïcien qu'on a oublié</h2>
+      <p class="musonius-text">Musonius Rufus est le moins connu des grands stoïciens. Et pourtant il était le maître d'Épictète. Il enseignait en plein air, travaillait la terre de ses mains, et répétait que la philosophie sans pratique corporelle était incomplète.</p>
+      <p class="musonius-text">Ce n'est pas de la brutalité. C'est de la pédagogie. Le corps apprend ce que l'esprit peine à retenir.</p>
+      <blockquote class="fig-citation">
+        L'entraînement du corps fortifie l'âme en l'accoutumant à l'effort et à la douleur.
+        <cite class="fig-cite">— Musonius Rufus, Diatribes</cite>
+      </blockquote>
+    </div>
+
+    <p class="section-label reveal">V — La doctrine Ghost</p>
+    <div class="ghost-doctrine reveal">
+      <p class="ghost-doctrine-label">V — La doctrine Ghost</p>
+      <h2 class="ghost-doctrine-title">La cohérence entre doctrine et vie</h2>
+      <p class="ghost-doctrine-text">Vouloir une architecture intérieure rigoureuse et laisser le corps sans gouvernail — c'est une contradiction. La Morale de Ghost ne tolère pas les contradictions entre la doctrine et la vie.</p>
+      <p class="ghost-doctrine-text">Chaque séance est un acte stoïcien. Chaque repas est une décision philosophique. Chaque nuit de sommeil est une préparation à l'action juste du lendemain.</p>
+    </div>
+
+    <p class="section-label reveal">VI — Exercice racine</p>
+    <div class="exercice-block reveal">
+      <p class="exercice-label">Exercice — Le corps comme journal</p>
+      <h2 class="exercice-title">Le corps comme journal</h2>
+      <p class="concept-text">Pendant 7 jours, après chaque séance ou chaque journée de mouvement, note une seule phrase.</p>
+      <div class="journal-instruction">
+        <p class="journal-text">« Ce que mon corps m'a appris aujourd'hui. »</p>
+      </div>
+      <p class="concept-text">Pas une évaluation de performance. Une observation. Ce que la fatigue, l'effort, ou le repos t'a révélé sur ton état intérieur ce jour-là.</p>
+      <p class="concept-text">Au bout de 7 jours — relis. Le corps parle. Il a toujours parlé. Tu apprenais à écouter.</p>
+    </div>
+
+    <div class="final-citation reveal">
+      <p class="final-citation-text">« Gouverne ton corps comme tu gouvernes ta pensée —<br>avec rigueur, sans brutalité. »</p>
+      <p class="final-citation-author">— Aurelius Secundus</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
