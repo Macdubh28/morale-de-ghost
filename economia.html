@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>L'Economia — Morale de Ghost</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080808">
+  <style>
+    .page-hero { padding: calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-xl); max-width: var(--max-width); margin: 0 auto; }
+    .page-hero-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .page-hero-title { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pierre); letter-spacing: 0.12em; margin-bottom: var(--spacing-md); opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .page-hero-intro { max-width: 560px; font-style: italic; color: var(--pierre-mute); opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+    .content-block { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-lg) var(--spacing-2xl); }
+    .eco-central { text-align: center; padding: var(--spacing-xl) 0 var(--spacing-2xl); border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .eco-greek { font-family: var(--font-title); font-size: clamp(3rem, 8vw, 6rem); color: var(--pourpre-dim); opacity: 0.4; letter-spacing: 0.1em; line-height: 1; margin-bottom: var(--spacing-lg); display: block; }
+    .eco-def { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pierre-mute); margin-bottom: var(--spacing-xl); }
+    .eco-text { max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--pierre-dim); line-height: 1.85; }
+    .concept-block { padding: var(--spacing-xl) 0; border-bottom: 1px solid rgba(232,224,208,0.05); }
+    .concept-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .concept-text { color: var(--pierre-dim); line-height: 1.85; margin-bottom: var(--spacing-md); font-size: 1.05rem; max-width: 680px; }
+    .ressources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .ressource-item { padding: var(--spacing-lg); border: 1px solid rgba(107,63,160,0.1); background: rgba(107,63,160,0.02); }
+    .ressource-num { font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-sm); }
+    .ressource-title { font-family: var(--font-head); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .ressource-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .gaspillage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+    .gaspillage-item { padding: var(--spacing-lg); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); }
+    .gaspillage-title { font-family: var(--font-head); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pierre); margin-bottom: var(--spacing-sm); }
+    .gaspillage-text { font-size: 0.95rem; color: var(--pierre-dim); line-height: 1.65; }
+    .seneque-block { padding: var(--spacing-xl); border: 1px solid rgba(107,63,160,0.12); background: rgba(107,63,160,0.03); margin: var(--spacing-xl) 0; }
+    .seneque-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .seneque-title { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--pierre); letter-spacing: 0.08em; margin-bottom: var(--spacing-lg); }
+    .seneque-text { color: var(--pierre-dim); line-height: 1.85; font-size: 1.05rem; margin-bottom: var(--spacing-md); }
+    .vindica { text-align: center; padding: var(--spacing-xl); border: 1px solid rgba(232,224,208,0.06); background: var(--noir-soft); margin: var(--spacing-lg) 0; }
+    .vindica-latin { font-family: var(--font-title); font-size: clamp(1.5rem, 4vw, 2.5rem); color: var(--pourpre-dim); font-style: italic; letter-spacing: 0.1em; margin-bottom: var(--spacing-sm); display: block; }
+    .vindica-trad { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    .exercice-block { padding: var(--spacing-xl) 0; }
+    .exercice-label { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--pourpre-glow); margin-bottom: var(--spacing-lg); }
+    .exercice-title { font-family: var(--font-head); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--pierre); letter-spacing: 0.1em; margin-bottom: var(--spacing-lg); }
+    .questions-list { list-style: none; padding: 0; margin: var(--spacing-lg) 0; }
+    .questions-list li { font-size: 1.05rem; color: var(--pierre-dim); line-height: 1.85; padding: var(--spacing-md) 0; border-bottom: 1px solid rgba(232,224,208,0.04); padding-left: var(--spacing-md); position: relative; }
+    .questions-list li::before { content: '—'; position: absolute; left: 0; color: var(--pourpre-dim); }
+    .fig-citation { border-left: 2px solid var(--pourpre-dim); padding-left: var(--spacing-md); margin-top: var(--spacing-md); font-style: italic; color: var(--pierre-mute); font-size: 1rem; line-height: 1.6; }
+    .fig-cite { display: block; font-family: var(--font-head); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; font-style: normal; color: var(--pierre-mute); opacity: 0.6; margin-top: var(--spacing-xs); }
+    .final-citation { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid rgba(232,224,208,0.05); }
+    .final-citation-text { font-family: var(--font-title); font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--pierre); font-style: italic; letter-spacing: 0.05em; line-height: 1.6; max-width: 600px; margin: 0 auto var(--spacing-md); }
+    .final-citation-author { font-family: var(--font-head); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--pierre-mute); }
+    @media (max-width: 768px) { .ressources-grid { grid-template-columns: 1fr; } .gaspillage-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">Morale de Ghost</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html">Melete Thanatou</a></li>
+      <li><a href="corps.html">Le Corps</a></li>
+      <li><a href="economia.html" class="active">L'Economia</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">X — L'Economia</p>
+    <h1 class="page-hero-title">Le refus du<br>gaspillage intérieur</h1>
+    <p class="page-hero-intro">Ce qui est gaspillé ne revient pas. Ce qui est préservé se multiplie.</p>
+  </div>
+
+  <div class="content-block">
+
+    <div class="eco-central reveal">
+      <span class="eco-greek">οἰκονομία</span>
+      <p class="eco-def">Oikonomia — Gouvernement de la maison · Gestion juste · Discipline des ressources</p>
+      <p class="eco-text">Pas l'économie au sens financier. Le gouvernement juste de tout ce qui t'appartient vraiment : ton temps, ton énergie, ton attention, ta parole. La loi fondamentale : ne rien laisser s'échapper sans décision consciente.</p>
+    </div>
+
+    <p class="section-label reveal" style="margin-top: var(--spacing-xl);">I — Le concept</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">Pas l'économie — l'Oikonomia</h2>
+      <p class="concept-text">Les Stoïciens distinguaient ce qui dépend de nous (<em>eph' hèmin</em>) de ce qui n'en dépend pas. L'Economia est la discipline qui s'applique à tout ce qui dépend de toi — pour ne rien en gaspiller.</p>
+      <p class="concept-text">Avant de donner — sache ce que tu as. Avant de dépenser — sache ce qui vaut la peine. C'est une instruction de gouvernance intérieure, pas une invitation à l'égoïsme.</p>
+    </div>
+
+    <p class="section-label reveal">II — Les quatre ressources</p>
+    <div class="concept-block reveal">
+      <div class="ressources-grid">
+        <div class="ressource-item">
+          <p class="ressource-num">Ressource 01</p>
+          <p class="ressource-title">Le Temps</p>
+          <p class="ressource-text">La seule ressource non-renouvelable. Le Ghost ne reporte pas. Il agit dans le présent ou il décide consciemment d'attendre. Jamais les deux en même temps.</p>
+        </div>
+        <div class="ressource-item">
+          <p class="ressource-num">Ressource 02</p>
+          <p class="ressource-title">L'Énergie</p>
+          <p class="ressource-text">Chaque décision, chaque conversation, chaque hésitation en consomme. Le Ghost est sélectif — pas par égoïsme, mais par rigueur. Ce à quoi tu donnes ton énergie te définit autant que ce que tu refuses.</p>
+        </div>
+        <div class="ressource-item">
+          <p class="ressource-num">Ressource 03</p>
+          <p class="ressource-title">L'Attention</p>
+          <p class="ressource-text">Le bien le plus convoité du monde moderne. Chaque notification cherche à te la prendre. L'Economia de l'attention, c'est décider soi-même où elle va — pas la subir.</p>
+        </div>
+        <div class="ressource-item">
+          <p class="ressource-num">Ressource 04</p>
+          <p class="ressource-title">La Parole</p>
+          <p class="ressource-text">La parole consomme de l'autorité. Trop parler dilue. Le Ghost parle peu et juste — non par timidité, mais parce qu'il sait que la parole est une ressource. Elle se dépense. Elle s'économise.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">III — Les quatre formes de gaspillage</p>
+    <div class="concept-block reveal">
+      <div class="gaspillage-grid">
+        <div class="gaspillage-item">
+          <p class="gaspillage-title">La Colère</p>
+          <p class="gaspillage-text">Elle brûle de l'énergie pour changer ce qui ne peut pas être changé. Dépense maximale, retour nul.</p>
+        </div>
+        <div class="gaspillage-item">
+          <p class="gaspillage-title">La Rumination</p>
+          <p class="gaspillage-text">Elle consomme du temps présent pour revivre le passé. Le passé ne répond pas. Il prend sans rendre.</p>
+        </div>
+        <div class="gaspillage-item">
+          <p class="gaspillage-title">L'Attente passive</p>
+          <p class="gaspillage-text">Elle laisse le temps s'écouler sans décision. Ni action ni repos conscient — juste une fuite sans direction.</p>
+        </div>
+        <div class="gaspillage-item">
+          <p class="gaspillage-title">L'Approbation extérieure</p>
+          <p class="gaspillage-text">Elle dépense de l'attention pour des jugements qui n'ont aucune valeur réelle. Le regard des autres ne nourrit pas — il capte.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label reveal">IV — Racine stoïcienne</p>
+    <div class="seneque-block reveal">
+      <p class="seneque-label">Racine stoïcienne — Sénèque, Lettre I</p>
+      <h2 class="seneque-title">Vindica te tibi</h2>
+      <p class="seneque-text">La première lettre de Sénèque à Lucilius commence par ces trois mots. Revendique-toi pour toi-même. Récupère ton temps. Reprends ce qui t'a été volé.</p>
+      <p class="seneque-text"><em>"La plupart des hommes ne vivent pas — ils attendent de vivre."</em> Sénèque entier est une méditation sur le temps perdu, l'énergie dispersée, l'attention captée par le bruit du monde.</p>
+      <div class="vindica">
+        <span class="vindica-latin">Vindica te tibi</span>
+        <p class="vindica-trad">— Sénèque · Revendique-toi pour toi-même</p>
+      </div>
+    </div>
+
+    <p class="section-label reveal">V — La doctrine Ghost</p>
+    <div class="concept-block reveal">
+      <h2 class="concept-title">L'Economia n'est pas de l'avarice</h2>
+      <p class="concept-text">Celui qui gaspille finit par n'avoir plus rien à donner. Celui qui gouverne ses ressources peut être pleinement présent quand ça compte. L'Economia n'est pas du retrait — c'est de la préparation à la présence juste.</p>
+      <p class="concept-text">Le Ghost donne entièrement — quand il a décidé de donner. Il retient entièrement — quand il a décidé de retenir. Il n'y a pas de demi-mesure, pas de fuite passive. Seulement des décisions conscientes.</p>
+    </div>
+
+    <p class="section-label reveal">VI — Exercice racine</p>
+    <div class="exercice-block reveal">
+      <p class="exercice-label">Exercice — L'audit des fuites</p>
+      <h2 class="exercice-title">L'audit des fuites</h2>
+      <p class="concept-text">Pendant une journée, observe sans juger où partent tes ressources — temps, énergie, attention, parole.</p>
+      <p class="concept-text">À la fin de la journée, trois questions. Pas de culpabilité. Une cartographie.</p>
+      <ul class="questions-list">
+        <li>Qu'est-ce qui a absorbé mes ressources sans rien produire de réel ?</li>
+        <li>À quoi ai-je donné mon attention sans l'avoir choisi ?</li>
+        <li>Qu'est-ce que j'aurais pu faire à la place ?</li>
+      </ul>
+      <p class="concept-text">Tu ne peux gouverner que ce que tu vois.</p>
+    </div>
+
+    <div class="final-citation reveal">
+      <p class="final-citation-text">« Ne dépense pas ce que tu n'as pas décidé de dépenser. »</p>
+      <p class="final-citation-author">— Aurelius Secundus</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
