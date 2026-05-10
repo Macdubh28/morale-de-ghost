@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Désir — Morale de Ghost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --noir: #080808; --noir-doux: #0f0f0f; --pierre: #E8E0D0;
+      --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
+      --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
+      --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(201,169,110,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--or); text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--pierre); font-size: 1.4rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--or); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(8,8,8,0.99); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .nav-links.open { display: flex; }
+    }
+    .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(107,63,160,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 30% 70%, rgba(201,169,110,0.04) 0%, transparent 60%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(107,63,160,0.25); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero-greek-label span { opacity: 0.7; }
+    .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero h1 em { display: block; color: var(--or); font-style: normal; }
+    .hero-sub { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pierre-faible); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+    .hero-intro { max-width: 660px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--pierre); opacity: 0.9; line-height: 1.9; }
+    .scroll-cta { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pierre-faible); text-transform: uppercase; cursor: pointer; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .scroll-cta:hover { color: var(--or); }
+    .scroll-cta::after { content: '↓'; font-size: 1rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
+    .section h2 em { color: var(--or); font-style: normal; }
+    .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
+    .concept-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.5rem; margin: 2.5rem 0; }
+    .concept-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(201,169,110,0.12); border-top: 2px solid var(--pourpre); padding: 1.5rem; border-radius: 2px; }
+    .concept-card .greek { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-style: italic; color: var(--pourpre-clair); margin-bottom: 0.3rem; }
+    .concept-card .latin { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .concept-card p { font-size: 0.95rem; margin: 0; opacity: 0.8; }
+    .passions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2.5rem 0; }
+    @media (max-width: 640px) { .passions-grid { grid-template-columns: 1fr; } }
+    .passions-col h3 { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid; }
+    .passions-col.neg h3 { color: #c06060; border-color: rgba(192,96,96,0.3); }
+    .passions-col.pos h3 { color: var(--or); border-color: rgba(201,169,110,0.3); }
+    .passion-item { margin-bottom: 1.2rem; padding-left: 1rem; border-left: 2px solid; }
+    .passions-col.neg .passion-item { border-color: rgba(192,96,96,0.3); }
+    .passions-col.pos .passion-item { border-color: rgba(201,169,110,0.3); }
+    .passion-item .name { font-family: 'Crimson Text', serif; font-size: 1rem; font-style: italic; margin-bottom: 0.2rem; }
+    .passions-col.neg .passion-item .name { color: #d08080; }
+    .passions-col.pos .passion-item .name { color: var(--or); }
+    .passion-item .def { font-size: 0.88rem; color: var(--pierre-faible); margin: 0; }
+    .mechanism { margin: 2.5rem 0; position: relative; }
+    .mechanism-step { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 0; position: relative; }
+    .mechanism-step:not(:last-child)::after { content: ''; position: absolute; left: 1.5rem; top: 3rem; width: 1px; height: 100%; background: linear-gradient(to bottom, var(--pourpre), transparent); }
+    .step-number { width: 3rem; height: 3rem; border-radius: 50%; background: var(--pourpre-trace); border: 1px solid var(--pourpre); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--pourpre-clair); flex-shrink: 0; }
+    .step-content { padding: 0.75rem 0 2rem; }
+    .step-content .step-greek { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pourpre-clair); margin-bottom: 0.3rem; }
+    .step-content .step-title { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--or); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .step-content p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    .step-highlight { background: var(--pourpre-trace); border: 1px solid rgba(107,63,160,0.3); border-radius: 2px; padding: 0.4rem 0.8rem; display: inline-block; margin-top: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--pourpre-clair); text-transform: uppercase; }
+    .virtues-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin: 2.5rem 0; }
+    @media (max-width: 560px) { .virtues-grid { grid-template-columns: 1fr; } }
+    .virtue-card { background: var(--or-faible); border: 1px solid rgba(201,169,110,0.2); padding: 1.5rem; border-radius: 2px; text-align: center; }
+    .virtue-card .v-greek { font-family: 'Crimson Text', serif; font-size: 1.3rem; font-style: italic; color: var(--or); margin-bottom: 0.25rem; }
+    .virtue-card .v-name { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--pierre-faible); text-transform: uppercase; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
+    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
+    .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
+    .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .exercise p { margin-bottom: 1.2rem; opacity: 0.88; }
+    .exercise-rule { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--or); text-align: center; line-height: 2; margin: 1.5rem 0; font-style: italic; }
+    .final-quote { text-align: center; padding: 5rem 2rem; border-top: 1px solid rgba(201,169,110,0.08); }
+    .final-quote p { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem,3vw,1.7rem); font-style: italic; color: var(--blanc-casse); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .final-quote cite { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--or); text-transform: uppercase; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(201,169,110,0.06); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-transform: uppercase; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="index.html">Morale de Ghost</a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html">Melete Thanatou</a></li>
+      <li><a href="corps.html">Le Corps</a></li>
+      <li><a href="economia.html">L'Economia</a></li>
+      <li><a href="silence.html">Le Silence</a></li>
+      <li><a href="relation.html">L'Autre</a></li>
+      <li><a href="le-desir.html" class="active">Le Désir</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <p class="hero-number">XIII — Le Désir</p>
+    <p class="hero-greek">ὄρεξις</p>
+    <p class="hero-greek-label">Orexis — Le désir <span>·</span> Boulêsis — La volonté juste <span>·</span> Discipline de l'impulsion</p>
+    <h1>Le feu<em>à discipliner</em></h1>
+    <p class="hero-sub">Le désir n'est pas l'ennemi. L'esclavage, c'est désirer ce qui ne dépend pas de toi.</p>
+    <p class="hero-intro">Les Stoïciens n'ont pas enseigné l'extinction du désir. Ils ont enseigné sa transformation. Non pas éteindre le feu — le diriger. L'<em>orexis</em> brute devient <em>boulêsis</em> : la volonté rationnelle orientée vers le seul bien réel.</p>
+    <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
+  </header>
+  <main id="contenu">
+    <section class="section">
+      <p class="section-tag">I — Anatomie du désir</p>
+      <h2>L'<em>Orexis</em> : trois mouvements de l'âme</h2>
+      <p>Avant de discipliner quelque chose, il faut le comprendre dans sa structure exacte. Les Stoïciens ont cartographié les mouvements de l'âme avec une précision que la psychologie moderne redécouvre à peine. Le désir n'est pas un bloc monolithique — c'est un système.</p>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <p class="greek">Ὄρεξις</p><p class="latin">Orexis / Appetitus</p>
+          <p>L'impulsion vers — le mouvement naturel de l'âme qui se porte vers quelque chose. Ni bon ni mauvais en lui-même. C'est son objet qui le qualifie.</p>
+        </div>
+        <div class="concept-card">
+          <p class="greek">Ἔκκλισις</p><p class="latin">Ekklisis / Fuga</p>
+          <p>L'aversion — le mouvement qui fuit, qui repousse. Le miroir du désir. Mal orientée, elle devient peur ; bien orientée, prudence.</p>
+        </div>
+        <div class="concept-card">
+          <p class="greek">Ὁρμή</p><p class="latin">Hormê / Impetus</p>
+          <p>L'impulsion à agir — ce qui traduit le désir en mouvement concret dans le monde. La force motrice entre l'intérieur et l'acte.</p>
+        </div>
+      </div>
+      <p>Ces trois mouvements sont naturels — ils existent chez tout être vivant. Le travail stoïcien ne consiste pas à les supprimer, mais à les <strong>éduquer</strong> : orienter l'<em>orexis</em> vers ce qui est véritablement bon, l'<em>ekklisis</em> vers ce qui est véritablement mauvais, et l'<em>hormê</em> vers l'action juste.</p>
+    </section>
+    <section class="section">
+      <p class="section-tag">II — Le piège fondamental</p>
+      <h2>Désirer ce qui <em>ne dépend pas</em> de toi</h2>
+      <p>Épictète ouvre le <em>Manuel</em> par ce qu'il considère comme la vérité la plus importante qu'un homme puisse apprendre. Pas une consolation, pas une sagesse douce — un diagnostic brutal.</p>
+      <blockquote>Parmi les choses qui existent, certaines dépendent de nous — opinions, impulsions, désirs, aversions. D'autres ne dépendent pas de nous — le corps, la réputation, le pouvoir, la richesse. Ce qui dépend de nous est libre par nature. Ce qui n'en dépend pas est faible, esclave, soumis aux obstacles.<cite>Épictète, Manuel, §1</cite></blockquote>
+      <p>La conclusion est implacable : chaque fois que tu désires quelque chose qui appartient à la seconde catégorie — la réussite d'un projet, l'amour d'une personne précise, la reconnaissance d'autrui, la santé du corps — tu places ton bonheur entre les mains de forces que tu ne contrôles pas.</p>
+      <p>Ce n'est pas une philosophie du renoncement. C'est une philosophie de la <strong>lucidité radicale</strong>. Tu peux agir pour obtenir ces choses. Tu ne peux pas en faire la condition de ta paix intérieure. La différence entre ces deux attitudes est la différence entre un homme libre et un esclave — peu importe ses conditions matérielles extérieures.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Diagnostic Ghost</p>
+        <h3>Où tes désirs sont-ils ancrés ?</h3>
+        <p>Fais l'inventaire honnête. Quand tu souffres — quand tu es frustré, anxieux, déçu — remonte la chaîne jusqu'au désir à l'origine. Dans neuf cas sur dix, tu trouveras un désir portant sur quelque chose qui ne dépend pas de toi. Pas un défaut de caractère. Une erreur d'orientation, corrigible.</p>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">III — La carte des émotions</p>
+      <h2><em>Pathê</em> contre <em>Eupatheiai</em></h2>
+      <p>Le stoïcisme ne demande pas d'être une pierre insensible. Il distingue avec une précision remarquable les émotions corrompues des émotions purifiées. Les premières naissent de fausses croyances sur la valeur des choses. Les secondes naissent d'une vision juste du réel.</p>
+      <div class="passions-grid">
+        <div class="passions-col neg">
+          <h3>Pathê — Passions corrompues</h3>
+          <div class="passion-item"><p class="name">Epithumia</p><p class="def">Désir violent d'un bien absent — l'appétit qui ne connaît pas de mesure, qui fait de l'obtention une nécessité existentielle.</p></div>
+          <div class="passion-item"><p class="name">Phobos</p><p class="def">Crainte d'un mal futur — la peur qui paralyse, qui anticipe le pire et y attache l'identité.</p></div>
+          <div class="passion-item"><p class="name">Hêdonê</p><p class="def">Plaisir excessif pour un bien présent — le plaisir qui s'emballe au-delà de la raison, qui mène à la dépendance.</p></div>
+          <div class="passion-item"><p class="name">Lupê</p><p class="def">Douleur excessive face au présent — la rumination, l'effondrement, la souffrance qui se nourrit d'elle-même.</p></div>
+        </div>
+        <div class="passions-col pos">
+          <h3>Eupatheiai — Émotions purifiées</h3>
+          <div class="passion-item"><p class="name">Boulêsis</p><p class="def">Volonté rationnelle orientée vers le bien réel — désirer ce qui dépend de soi, avec discernement et mesure.</p></div>
+          <div class="passion-item"><p class="name">Eulabeia</p><p class="def">Prudence éclairée face à ce qui mérite d'être évité — non la peur irrationnelle, mais le discernement du vrai mal.</p></div>
+          <div class="passion-item"><p class="name">Chara</p><p class="def">Joie profonde et stable — non le plaisir superficiel, mais la satisfaction sereine de celui qui vit selon la raison.</p></div>
+          <div class="passion-item" style="opacity:0.45;"><p class="name" style="color:var(--pierre-faible);">—</p><p class="def">Il n'existe pas d'<em>eupatheia</em> correspondant à la <em>lupê</em>. Aucune douleur présente n'est un vrai mal si elle ne corrompt pas la vertu.</p></div>
+        </div>
+      </div>
+      <p>Cette asymétrie est capitale : il n'y a pas d'équivalent purifié de la souffrance excessive. La réalité présente — quelle qu'elle soit — ne peut pas atteindre ce qui compte vraiment : la qualité de ton jugement, l'intégrité de ta volonté.</p>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — Le mécanisme exact</p>
+      <h2>De la représentation <em>à l'assentiment</em></h2>
+      <p>Chrysippe — architecte systématique du stoïcisme — a formalisé le processus par lequel un désir naît, se corrompt ou se purifie. Ce n'est pas une métaphore. C'est une mécanique précise, et comprendre chaque étape, c'est comprendre où intervenir.</p>
+      <div class="mechanism">
+        <div class="mechanism-step">
+          <div class="step-number">I</div>
+          <div class="step-content">
+            <p class="step-greek">Φαντασία — Phantasia</p>
+            <p class="step-title">La représentation</p>
+            <p>Une image frappe l'âme — une perception, une pensée, un souvenir. Elle se présente avec une apparence de valeur : cette chose est belle, dangereuse, désirable, menaçante. La représentation n'est pas encore un jugement. C'est une proposition que l'âme reçoit.</p>
+          </div>
+        </div>
+        <div class="mechanism-step">
+          <div class="step-number">II</div>
+          <div class="step-content">
+            <p class="step-greek">Συγκατάθεσις — Synkatathesis</p>
+            <p class="step-title">L'assentiment — le moment décisif</p>
+            <p>L'âme approuve ou refuse la représentation. C'est ici que tout se joue. C'est l'unique instant où la liberté est entière. Avant ce point : simple perception. Après ce point : la passion ou la vertu est déjà en marche.</p>
+            <span class="step-highlight">← L'espace de ta liberté totale</span>
+          </div>
+        </div>
+        <div class="mechanism-step">
+          <div class="step-number">III</div>
+          <div class="step-content">
+            <p class="step-greek">Ὁρμή — Hormê</p>
+            <p class="step-title">L'impulsion</p>
+            <p>Si tu as dit oui à la représentation, l'impulsion vers l'action suit immédiatement. Elle est naturelle, automatique. Tu veux, tu crains, tu fuis. La qualité de l'assentiment détermine la qualité de l'impulsion.</p>
+          </div>
+        </div>
+        <div class="mechanism-step">
+          <div class="step-number">IV</div>
+          <div class="step-content">
+            <p class="step-greek">Ὄρεξις / Βούλησις</p>
+            <p class="step-title">Passion corrompue ou volonté juste</p>
+            <p>Selon la qualité de l'assentiment au moment II : soit la passion (désir mal orienté vers ce qui ne dépend pas de toi), soit la <em>boulêsis</em> — la volonté rationnelle qui désire ce qui est véritablement bien.</p>
+          </div>
+        </div>
+      </div>
+      <blockquote>Les hommes ne sont pas troublés par les événements, mais par les opinions qu'ils ont des événements.<cite>Épictète, Manuel, §5</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">V — L'outil central</p>
+      <h2>L'<em>Epochê</em> : la pause qui libère</h2>
+      <p>Entre la représentation et l'assentiment existe un espace. Infinitésimal au début de la pratique. Expansible avec l'entraînement. C'est cet espace que les Stoïciens appellent <em>epochê</em> — la suspension du jugement, la pause délibérée avant d'approuver ou de refuser.</p>
+      <p>Marc Aurèle y revient constamment dans ses <em>Pensées</em> — non comme une technique abstraite, mais comme un combat quotidien mené au cœur même des affaires de l'empire. Chaque matin, il se prépare à rencontrer des ingrats, des flatteurs, des adversaires. Et dans chaque rencontre, il pratique cette pause.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Pratique Ghost</p>
+        <h3>Les trois questions de l'<em>epochê</em></h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>Cette représentation est-elle exacte ?</strong><p>Ce que je perçois correspond-il à la réalité, ou à mon interprétation de la réalité ? L'aigle distingue le terrain de la carte.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>Ce que je désire dépend-il de moi ?</strong><p>Si non — je peux agir pour l'obtenir, sans en faire la condition de ma paix. Si oui — je peux désirer pleinement.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>Quelle est l'action juste, indépendamment du résultat ?</strong><p>Agir selon la vertu, pas selon l'espoir du résultat. C'est la seule réponse qui reste intacte quelle que soit l'issue.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">VI — L'horizon</p>
+      <h2>Le seul désir <em>pleinement légitime</em></h2>
+      <p>Pour les Stoïciens, un seul objet mérite d'être désiré avec toute la force de l'âme, sans réserve ni condition : la vertu. Non pas parce que c'est une obligation morale abstraite, mais parce que c'est le seul bien qui soit entièrement en ton pouvoir, à chaque instant, quelles que soient les circonstances.</p>
+      <p>Tout le reste — richesse, santé, réputation, succès — appartient à la catégorie des <em>adiaphora</em> : les indifférents. Ni biens ni maux en eux-mêmes. Préférables ou non-préférables. Jamais objets d'un désir qui engage ta paix.</p>
+      <div class="virtues-grid">
+        <div class="virtue-card"><p class="v-greek">Φρόνησις</p><p class="v-name">Phronêsis · Sagesse pratique</p></div>
+        <div class="virtue-card"><p class="v-greek">Δικαιοσύνη</p><p class="v-name">Dikaiosynê · Justice</p></div>
+        <div class="virtue-card"><p class="v-greek">Ἀνδρεία</p><p class="v-name">Andreia · Courage</p></div>
+        <div class="virtue-card"><p class="v-greek">Σωφροσύνη</p><p class="v-name">Sôphrosynê · Tempérance</p></div>
+      </div>
+      <blockquote>Ne désire pas que les choses arrivent comme tu le veux. Désire que les choses arrivent comme elles arrivent — et tu seras heureux.<cite>Marc Aurèle, Pensées, VI.16</cite></blockquote>
+      <p>Cette formule n'est pas du fatalisme. C'est la distinction la plus subtile du stoïcisme : entre vouloir le résultat (qui ne dépend pas de toi) et vouloir agir juste (qui dépend entièrement de toi). Le Ghost désire toujours — mais il désire ce qui est en son pouvoir de vouloir.</p>
+    </section>
+    <section class="section">
+      <p class="section-tag">VII — La doctrine Ghost</p>
+      <h2>Discipliner le feu, <em>pas l'éteindre</em></h2>
+      <div class="ghost-section">
+        <p class="ghost-tag">Application — Les quatre piliers</p>
+        <h3>Comment le Ghost habite le désir</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>L'Aigle et la Phantasia</strong><p>La hauteur de vue n'est pas une distance froide — c'est la capacité à voir la représentation pour ce qu'elle est, avant que l'assentiment ne soit accordé. L'aigle identifie le leurre avant de fondre.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et l'Epithumia transformée</strong><p>Ce que l'adversité révèle, c'est précisément où tes désirs étaient mal orientés. Chaque épreuve est un diagnostic. Ce qui t'a traversé te montre ce à quoi tu tenais trop — et te donne l'occasion de le corriger.</p></div></li>
+          <li><span class="pillar-icon">🐂</span><div class="pillar-text"><strong>Le Taureau et la Boulêsis</strong><p>L'endurance n'est pas absence de désir — c'est la capacité à maintenir un désir juste sur la durée, sans céder à l'impatience de l'<em>epithumia</em> qui veut le résultat immédiat. Construire dans l'ombre exige cette volonté lente et constante.</p></div></li>
+          <li><span class="pillar-icon">∞</span><div class="pillar-text"><strong>Aurelius Secundus et la Chara</strong><p>La joie stoïcienne n'est pas la joie de l'obtention — c'est la joie de l'alignement. Quand ce que tu désires et ce que tu peux maîtriser coïncident parfaitement : là réside la paix que rien d'extérieur ne peut menacer.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">VIII — Exercice racine</p>
+      <div class="exercise">
+        <p class="exercise-tag">Exercice — Pierre Hadot · Discipline du désir</p>
+        <h3>L'inventaire du désir</h3>
+        <p>Pierre Hadot a montré que les exercices stoïciens ne sont pas des réflexions abstraites — ce sont des pratiques physiques de l'âme, aussi concrètes que l'entraînement du corps. Celui-ci se pratique le soir, avant de fermer la journée.</p>
+        <div class="exercise-rule">Prends trois désirs que tu as ressentis aujourd'hui.<br/>Trois — pas plus. La précision compte plus que l'exhaustivité.</div>
+        <p>Pour chacun, pose-toi ces questions en ordre :</p>
+        <p><strong>1. Ce désir portait-il sur quelque chose qui dépend de moi ?</strong><br/>Sois honnête. Pas "partiellement dépend" — vraiment. La réponse est souvent non.</p>
+        <p><strong>2. Quelle représentation l'a déclenché ?</strong><br/>Remonte à la <em>phantasia</em> initiale. Qu'as-tu perçu ? Qu'as-tu interprété ? Ce que tu as vu et ce que tu en as conclu sont souvent deux choses différentes.</p>
+        <p><strong>3. Si tu avais suspendu ton assentiment une seconde — qu'aurais-tu fait différemment ?</strong><br/>Pas pour te juger. Pour construire l'habitude de l'<em>epochê</em>. La prochaine fois, tu reconnaîtras ce moment.</p>
+        <div class="exercise-rule">« Le Ghost ne supprime pas ses désirs.<br/>Il sait ce qu'il désire — et pourquoi. »</div>
+        <p>Avec le temps, cet exercice change le grain même de l'attention. Tu commences à percevoir l'instant de l'assentiment — ce moment infinitésimal que Chrysippe a décrit comme le siège de toute liberté humaine.</p>
+      </div>
+    </section>
+  </main>
+  <div class="final-quote">
+    <p>« Ne désire pas être un autre.<br/>Désire être pleinement ce que tu es —<br/>avec toute la justesse que la raison permet. »</p>
+    <cite>— Aurelius Secundus</cite>
+  </div>
+  <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
+</body>
+</html>
