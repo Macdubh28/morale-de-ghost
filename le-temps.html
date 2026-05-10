@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Temps — Morale de Ghost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --noir: #080808; --noir-doux: #0f0f0f; --pierre: #E8E0D0;
+      --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
+      --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
+      --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(201,169,110,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--or); text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--pierre); font-size: 1.4rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--or); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(8,8,8,0.99); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .nav-links.open { display: flex; }
+    }
+    .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(107,63,160,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 30% 70%, rgba(201,169,110,0.04) 0%, transparent 60%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(107,63,160,0.25); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero-greek-label span { opacity: 0.7; }
+    .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero h1 em { display: block; color: var(--or); font-style: normal; }
+    .hero-sub { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pierre-faible); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+    .hero-intro { max-width: 660px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--pierre); opacity: 0.9; line-height: 1.9; }
+    .scroll-cta { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pierre-faible); text-transform: uppercase; cursor: pointer; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .scroll-cta:hover { color: var(--or); }
+    .scroll-cta::after { content: '↓'; font-size: 1rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
+    .section h2 em { color: var(--or); font-style: normal; }
+    .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
+    .dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2.5rem 0; }
+    @media (max-width: 640px) { .dual-grid { grid-template-columns: 1fr; } }
+    .dual-card { padding: 2rem; border-radius: 2px; }
+    .dual-card.chronos { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-top: 2px solid rgba(150,150,150,0.3); }
+    .dual-card.kairos { background: var(--or-faible); border: 1px solid rgba(201,169,110,0.2); border-top: 2px solid var(--or); }
+    .dual-card .card-greek { font-family: 'Crimson Text', serif; font-size: 2rem; font-style: italic; line-height: 1; margin-bottom: 0.3rem; }
+    .dual-card.chronos .card-greek { color: rgba(150,150,150,0.5); }
+    .dual-card.kairos .card-greek { color: var(--or); }
+    .dual-card .card-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+    .dual-card.chronos .card-label { color: var(--pierre-faible); }
+    .dual-card.kairos .card-label { color: var(--or); }
+    .dual-card p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    .seneca-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin: 2.5rem 0; }
+    @media (max-width: 640px) { .seneca-grid { grid-template-columns: 1fr; } }
+    .seneca-card { background: rgba(192,96,96,0.05); border: 1px solid rgba(192,96,96,0.15); border-top: 2px solid rgba(192,96,96,0.4); padding: 1.5rem; border-radius: 2px; }
+    .seneca-card .s-number { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(192,96,96,0.7); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .seneca-card .s-title { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--blanc-casse); margin-bottom: 0.75rem; }
+    .seneca-card p { font-size: 0.9rem; margin: 0; opacity: 0.8; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
+    blockquote.or { border-left-color: var(--or); background: var(--or-faible); }
+    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    .time-visual { margin: 2.5rem 0; }
+    .time-bar { display: flex; align-items: center; gap: 0; margin-bottom: 1rem; }
+    .time-past { flex: 3; height: 3px; background: linear-gradient(to right, transparent, rgba(150,150,150,0.2)); }
+    .time-now { width: 12px; height: 12px; border-radius: 50%; background: var(--or); flex-shrink: 0; box-shadow: 0 0 12px rgba(201,169,110,0.6); }
+    .time-future { flex: 7; height: 3px; background: linear-gradient(to right, rgba(150,150,150,0.1), transparent); }
+    .time-labels { display: flex; justify-content: space-between; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em; color: var(--pierre-faible); text-transform: uppercase; }
+    .time-labels .now-label { color: var(--or); }
+    .prosoche-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.5rem; margin: 2.5rem 0; }
+    .prosoche-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(201,169,110,0.1); border-left: 3px solid var(--pourpre); padding: 1.5rem; border-radius: 2px; }
+    .prosoche-card .p-number { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .prosoche-card .p-title { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--blanc-casse); margin-bottom: 0.5rem; }
+    .prosoche-card p { font-size: 0.9rem; margin: 0; opacity: 0.8; }
+    .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
+    .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
+    .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .exercise p { margin-bottom: 1.2rem; opacity: 0.88; }
+    .exercise-rule { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--or); text-align: center; line-height: 2; margin: 1.5rem 0; font-style: italic; }
+    .final-quote { text-align: center; padding: 5rem 2rem; border-top: 1px solid rgba(201,169,110,0.08); }
+    .final-quote p { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem,3vw,1.7rem); font-style: italic; color: var(--blanc-casse); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .final-quote cite { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--or); text-transform: uppercase; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(201,169,110,0.06); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-transform: uppercase; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="index.html">Morale de Ghost</a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="politique.html">Politique</a></li>
+      <li><a href="exercices.html">Exercices</a></li>
+      <li><a href="epreuve.html">L'Épreuve</a></li>
+      <li><a href="mort.html">Melete Thanatou</a></li>
+      <li><a href="corps.html">Le Corps</a></li>
+      <li><a href="economia.html">L'Economia</a></li>
+      <li><a href="silence.html">Le Silence</a></li>
+      <li><a href="relation.html">L'Autre</a></li>
+      <li><a href="le-desir.html">Le Désir</a></li>
+      <li><a href="le-temps.html" class="active">Le Temps</a></li>
+      <li><a href="logos.html">Logos</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <p class="hero-number">XIV — Le Temps</p>
+    <p class="hero-greek">Καιρός</p>
+    <p class="hero-greek-label">Kairos — Le moment juste <span>·</span> Chronos — Le temps qui fuit <span>·</span> Prosoche — L'attention active</p>
+    <h1>La seule richesse<em>qui ne se vole pas</em></h1>
+    <p class="hero-sub">La vie n'est pas courte. C'est nous qui la rendons courte en la laissant fuir sans la vivre.</p>
+    <p class="hero-intro">Le stoïcisme ne te demande pas de gérer ton temps. Il te demande quelque chose de plus radical : <em>habiter</em> chaque instant comme s'il était le seul qui existe. Parce qu'il l'est.</p>
+    <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
+  </header>
+  <main id="contenu">
+    <section class="section">
+      <p class="section-tag">I — Deux temps, deux libertés</p>
+      <h2><em>Chronos</em> et <em>Kairos</em> : ce qui fuit, ce qui t'appartient</h2>
+      <p>Les Grecs avaient deux mots pour le temps — et cette distinction est l'une des plus importantes que la philosophie antique nous ait léguée. Elle définit exactement ce qui dépend de toi et ce qui ne dépend pas de toi dans ta relation au temps.</p>
+      <div class="dual-grid">
+        <div class="dual-card chronos">
+          <p class="card-greek">Χρόνος</p>
+          <p class="card-label">Chronos — Le temps quantitatif</p>
+          <p>Le temps qui s'écoule — linéaire, mesurable, inexorable. Les heures, les jours, les années. Il ne t'appartient pas. Tu ne peux ni l'arrêter ni l'accélérer. Vouloir le contrôler, c'est désirer ce qui ne dépend pas de toi.</p>
+        </div>
+        <div class="dual-card kairos">
+          <p class="card-greek">Καιρός</p>
+          <p class="card-label">Kairos — Le moment qualitatif</p>
+          <p>Le moment juste — l'instant d'action décisive, l'heure présente pleinement habitée. Il t'appartient entièrement. C'est la qualité de ta présence à ce qui est, maintenant. C'est là que ta liberté réside.</p>
+        </div>
+      </div>
+      <p>Le travail stoïcien sur le temps n'est pas une technique de productivité. C'est un renversement radical : cesser de courir après <em>Chronos</em> — qu'on ne rattrapera jamais — pour habiter pleinement <em>Kairos</em> — qui est toujours disponible, toujours maintenant.</p>
+    </section>
+    <section class="section">
+      <p class="section-tag">II — Sénèque et la vie gaspillée</p>
+      <h2><em>De Brevitate Vitae</em> — le diagnostic sans pitié</h2>
+      <p>Sénèque écrit le <em>De Brevitate Vitae</em> comme un réquisitoire contre la façon dont les hommes traitent leur bien le plus précieux. Son argument central renverse l'idée reçue avec une précision implacable.</p>
+      <blockquote class="or">La vie n'est pas courte par nature — c'est nous qui la rendons courte. Nous ne manquons pas de temps — nous en perdons beaucoup. La vie est assez longue, et elle nous est donnée avec assez de générosité pour que nous accomplissions les plus grandes choses, si elle était bien employée.<cite>Sénèque, De Brevitate Vitae, I</cite></blockquote>
+      <p>Sénèque identifie trois catégories d'hommes qui volent leur propre temps sans le savoir :</p>
+      <div class="seneca-grid">
+        <div class="seneca-card">
+          <p class="s-number">Voleur I</p>
+          <p class="s-title">Les Occupati</p>
+          <p>Toujours affairés, jamais présents. L'homme qui remplit chaque heure d'activité mais ne vit dans aucune. L'agitation comme substitut de la vie.</p>
+        </div>
+        <div class="seneca-card">
+          <p class="s-number">Voleur II</p>
+          <p class="s-title">Les Voluptueux</p>
+          <p>Noyés dans le plaisir immédiat qui s'évanouit. Ils consomment du temps sans jamais le posséder. Chaque plaisir obtenu réclame le suivant.</p>
+        </div>
+        <div class="seneca-card">
+          <p class="s-number">Voleur III</p>
+          <p class="s-title">Les Négligents</p>
+          <p>Qui remettent à demain ce qui mérite aujourd'hui. Ils vivent dans le futur imaginaire — et meurent sans avoir vécu le présent réel.</p>
+        </div>
+      </div>
+      <p>Le temps est la seule ressource non renouvelable. L'argent perdu se regagne. Le temps perdu ne revient jamais. Traiter chaque heure comme une richesse rare — c'est la première discipline du Ghost.</p>
+      <blockquote>Omnia, Lucili, aliena sunt, tempus tantum nostrum est. Tout est étranger, Lucilius — le temps seul nous appartient.<cite>Sénèque, Lettres à Lucilius, I</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">III — Marc Aurèle et le présent</p>
+      <h2>Seul le présent <em>existe</em></h2>
+      <p>Marc Aurèle gouvernait l'empire romain — l'une des positions les plus surchargées d'histoire, de passé, de projections futures qui soit. Et pourtant, ses <em>Pensées</em> reviennent avec une obsession presque méditative sur un seul point : seul l'instant présent est réel.</p>
+      <div class="time-visual">
+        <div class="time-bar">
+          <div class="time-past"></div>
+          <div class="time-now"></div>
+          <div class="time-future"></div>
+        </div>
+        <div class="time-labels">
+          <span>Passé — mort</span>
+          <span class="now-label">Maintenant — seule réalité</span>
+          <span>Futur — inexistant</span>
+        </div>
+      </div>
+      <blockquote>Quand bien même tu vivrais trois mille ans, ou trente mille, souviens-toi que nul ne perd d'autre vie que celle qu'il vit — et qu'on ne vit que dans le présent. Le plus long et le plus court des temps se ramènent donc au même.<cite>Marc Aurèle, Pensées, II.14</cite></blockquote>
+      <p>Cette formule est vertigineuse dans sa radicalité. Que tu vives cent ans ou un seul jour — tu ne vivras jamais que dans l'instant présent. Le passé est inaccessible. Le futur n'existe pas encore. La seule vie réelle se déroule maintenant, dans ce moment précis.</p>
+      <p>L'homme qui vit dans le regret du passé vit dans le néant. L'homme qui vit dans l'anxiété du futur vit dans le néant. L'homme qui vit dans le présent vit dans la seule réalité qui soit.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Application Ghost</p>
+        <h3>Les deux fuites à reconnaître</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">←</span><div class="pillar-text"><strong>La fuite vers le passé</strong><p>Ruminer ce qui s'est passé, rejouer les erreurs, regretter les chemins non pris. Le passé est fixé — immuable, hors de ta portée. Y investir ton énergie présente, c'est voler ta seule richesse réelle pour la jeter dans un puits sans fond.</p></div></li>
+          <li><span class="pillar-icon">→</span><div class="pillar-text"><strong>La fuite vers le futur</strong><p>Vivre dans l'anticipation anxieuse, reporter sa vie à "quand j'aurai X", construire des scénarios qui n'existent pas. Le futur n'existe pas encore — et quand il arrivera, il sera le présent. Tu ne vivras jamais dans le futur. Tu vivras toujours maintenant.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — La Prosoche</p>
+      <h2>L'attention active <em>comme discipline</em></h2>
+      <p>Pierre Hadot identifie la <em>prosoche</em> (προσοχή) — l'attention à soi — comme l'exercice spirituel central de toute la philosophie stoïcienne. Ce n'est pas la méditation passive. C'est une <strong>tension active</strong> de l'âme vers ce qui se passe maintenant.</p>
+      <p>La <em>prosoche</em> appliquée au temps signifie une chose précise : ne laisser aucun moment se dérober sans être vécu. Pas par anxiété ou hypervigilance — mais par une présence choisie, délibérée, à chaque instant tel qu'il est.</p>
+      <div class="prosoche-grid">
+        <div class="prosoche-card">
+          <p class="p-number">Dimension I</p>
+          <p class="p-title">Attention à l'instant</p>
+          <p>Percevoir ce qui se passe réellement — dans le corps, dans l'esprit, dans la situation — sans le filtre du passé ni la projection du futur.</p>
+        </div>
+        <div class="prosoche-card">
+          <p class="p-number">Dimension II</p>
+          <p class="p-title">Qualité de présence</p>
+          <p>Être entièrement là où tu es. Pas physiquement présent et mentalement ailleurs. La moitié d'une présence n'est pas une présence.</p>
+        </div>
+        <div class="prosoche-card">
+          <p class="p-number">Dimension III</p>
+          <p class="p-title">Vigilance sur l'assentiment</p>
+          <p>Surveiller les représentations qui surgissent — et choisir à chaque instant de rester dans le présent plutôt que de glisser vers la rumination ou l'anticipation.</p>
+        </div>
+      </div>
+      <blockquote>Retire-toi en toi-même autant que tu peux. Fréquente ceux qui sont capables de te rendre meilleur. Reçois ceux que tu peux rendre meilleurs.<cite>Marc Aurèle, Pensées, VI.12</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">V — Memento Mori et le présent</p>
+      <h2>La mort comme <em>intensificateur</em> du vivant</h2>
+      <p>Le <em>memento mori</em> stoïcien n'est pas un exercice de mélancolie. C'est un outil précis au service du présent. Se souvenir que l'on va mourir n'est pas une pensée déprimante — c'est la pensée qui rend chaque instant irremplaçable.</p>
+      <p>Marc Aurèle pratiquait cet exercice quotidiennement. Non pour s'angoisser, mais pour ne jamais oublier la valeur absolue du temps qui lui était accordé. Chaque matin était vécu comme un don — non acquis, non garanti.</p>
+      <blockquote>Accomplis chaque acte de ta vie comme si c'était le dernier.<cite>Marc Aurèle, Pensées, II.5</cite></blockquote>
+      <p>Cette instruction n'est pas une injonction à l'héroïsme permanent. C'est une technique d'attention : si c'était la dernière fois que tu faisais cela — parlerais-tu différemment ? Agirais-tu différemment ? Serais-tu plus présent ? La réponse est presque toujours oui. Et cette réponse révèle la distance entre comment tu vis et comment tu pourrais vivre.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Doctrine Ghost</p>
+        <h3>Construire dans le temps qui t'appartient</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>L'Aigle et le Kairos</strong><p>L'aigle ne scrute pas le passé ni le futur — il voit le présent avec une clarté absolue. La hauteur de vue n'est pas une distance dans le temps, c'est une présence totale à l'instant. C'est depuis ce point fixe que l'action juste devient possible.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et le temps forgé</strong><p>L'adversité a une dimension temporelle : elle te force dans le présent. Quand tu traverses une épreuve réelle, tu ne peux pas être ailleurs. C'est pourquoi les difficultés, paradoxalement, sont parmi les rares moments où l'on vit vraiment — sans fuite possible vers le passé ou le futur.</p></div></li>
+          <li><span class="pillar-icon">🐂</span><div class="pillar-text"><strong>Le Taureau et la durée</strong><p>Construire dans l'ombre exige une relation particulière au temps : ni l'impatience du résultat immédiat, ni la paralysie de l'horizon lointain. Juste le travail de ce jour, fait avec la pleine qualité de ce jour. La somme des présents bien vécus est l'unique matière dont se construisent les choses durables.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">VI — Exercice racine</p>
+      <div class="exercise">
+        <p class="exercise-tag">Exercice — Sénèque · Le bilan de l'heure</p>
+        <h3>Omnia aliena sunt — tempus tantum nostrum est</h3>
+        <p>Sénèque recommandait un exercice quotidien d'une précision redoutable : le soir, avant de dormir, passer en revue chaque heure de la journée. Non pas pour se juger — mais pour voir comment le temps a été vécu ou gaspillé.</p>
+        <div class="exercise-rule">Prends les trois dernières heures de ta journée.<br/>Pour chacune — une seule question.</div>
+        <p><strong>Étais-je présent — ou ailleurs ?</strong><br/>Pas "ai-je été productif" — mais "étais-je là". Physiquement présent et mentalement dans cette heure, ou dans une heure passée ou future ? La réponse honnête révèle combien de ta vie tu vis réellement.</p>
+        <p><strong>Si cette heure était la dernière — en serais-je satisfait ?</strong><br/>Non pas : "ai-je accompli assez" — mais : "ai-je vécu cette heure avec la qualité qu'elle méritait ?" L'heure bien vécue n'est pas nécessairement l'heure productive. C'est l'heure habitée.</p>
+        <p><strong>Qu'est-ce qui m'a volé ma présence ?</strong><br/>Identifie le voleur. La rumination d'une conversation passée ? L'anxiété d'un projet futur ? Le bruit des notifications ? Nommer le voleur, c'est commencer à le reconnaître — et donc à le refuser.</p>
+        <div class="exercise-rule">« Le Ghost ne gère pas son temps.<br/>Il habite chaque instant avec la pleine conscience<br/>qu'il ne reviendra jamais. »</div>
+        <p>Avec le temps, cet exercice transforme la texture même de l'attention. Tu commences à percevoir, en temps réel, le moment où tu glisses hors du présent — et à choisir d'y revenir. C'est la <em>prosoche</em> en action.</p>
+      </div>
+    </section>
+  </main>
+  <div class="final-quote">
+    <p>« Tu n'as pas à conquérir le temps.<br/>Tu as à habiter cet instant —<br/>le seul que tu possèdes vraiment. »</p>
+    <cite>— Aurelius Secundus</cite>
+  </div>
+  <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
+</body>
+</html>
