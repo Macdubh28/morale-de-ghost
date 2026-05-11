@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Désir de Reconnaissance — Morale de Ghost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --noir: #080808; --noir-doux: #0f0f0f; --pierre: #E8E0D0;
+      --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
+      --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
+      --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(201,169,110,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--or); text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--pierre); font-size: 1.4rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--or); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(8,8,8,0.99); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .nav-links.open { display: flex; }
+    }
+    .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(107,63,160,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 30% 70%, rgba(201,169,110,0.04) 0%, transparent 60%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(107,63,160,0.25); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero-greek-label span { opacity: 0.7; }
+    .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero h1 em { display: block; color: var(--or); font-style: normal; }
+    .hero-sub { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pierre-faible); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+    .hero-intro { max-width: 660px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--pierre); opacity: 0.9; line-height: 1.9; }
+    .scroll-cta { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pierre-faible); text-transform: uppercase; cursor: pointer; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .scroll-cta:hover { color: var(--or); }
+    .scroll-cta::after { content: '\2193'; font-size: 1rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
+    .section h2 em { color: var(--or); font-style: normal; }
+    .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
+    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
+    .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
+    .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
+    .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .exercise p { margin-bottom: 1.2rem; opacity: 0.88; }
+    .exercise-rule { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--or); text-align: center; line-height: 2; margin: 1.5rem 0; font-style: italic; }
+    .nav-retour { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; margin: 4rem 0 0; transition: color 0.2s; }
+    .nav-retour:hover { color: var(--or); }
+    .final-quote { text-align: center; padding: 5rem 2rem; border-top: 1px solid rgba(201,169,110,0.08); }
+    .final-quote p { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem,3vw,1.7rem); font-style: italic; color: var(--blanc-casse); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .final-quote cite { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--or); text-transform: uppercase; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(201,169,110,0.06); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-transform: uppercase; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="index.html">Morale de Ghost</a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="le-desir.html">Le Désir</a></li>
+      <li><a href="desir-reconnaissance.html" class="active">Reconnaissance</a></li>
+      <li><a href="desir-controle.html">Contrôle</a></li>
+      <li><a href="desir-mimetique.html">Mimétique</a></li>
+      <li><a href="desir-charnel.html">Charnel</a></li>
+      <li><a href="desir-sens.html">Sens</a></li>
+      <li><a href="desir-pouvoir.html">Pouvoir</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <p class="hero-number">Le Désir — Facette I</p>
+    <p class="hero-greek">&#952;&#965;&#956;&#972;&#962;</p>
+    <p class="hero-greek-label">Thumos — L'ardeur <span>·</span> La soif d'être vu <span>·</span> L'ego comme prison</p>
+    <h1>Le Désir<em>de Reconnaissance</em></h1>
+    <p class="hero-sub">L'homme qui a besoin d'être vu n'est pas libre. Il a délégué sa valeur au regard des autres.</p>
+    <p class="hero-intro">De tous les désirs, celui de reconnaissance est le plus insidieux — parce qu'il se déguise en vertu. On croit chercher la justice, le mérite, la vérité. On cherche en réalité à être approuvé. Les Stoïciens l'ont nommé, disséqué, combattu. L'écosystème Ghost en fait son premier champ de bataille.</p>
+    <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
+  </header>
+  <main id="contenu">
+    <section class="section">
+      <p class="section-tag">I — L'anatomie du thumos</p>
+      <h2>Ce feu qui veut <em>être vu brûler</em></h2>
+      <p>Les Grecs avaient un mot pour cette force : <em>thumos</em>. L'ardeur, le courage, la fierté — mais aussi la vanité et l'orgueil blessé. Platon le plaçait entre la raison et le désir brut, comme un cheval fougueux à dompter. Les Stoïciens le voyaient différemment : le thumos mal orienté est le désir de reconnaissance à l'état pur — une passion qui cherche dans le regard de l'autre la confirmation de sa propre valeur.</p>
+      <p>C'est là le piège fondamental. Quand ta valeur dépend du regard des autres, tu leur as remis les clés de ta liberté intérieure. Chaque approbation est une dette. Chaque silence est une blessure. Chaque critique devient une menace existentielle.</p>
+      <blockquote>Si quelqu'un pouvait me transmettre cette pensée : que je dois vivre comme si chaque journée pouvait être la dernière — sans désirer la gloire, sans chercher à laisser une trace visible.<cite>Marc Aurèle, Pensées, VII.69</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">II — Hegel, Kojève et la lutte pour la reconnaissance</p>
+      <h2>Le désir qui <em>structure toute l'histoire</em></h2>
+      <p>Hegel a fait de la reconnaissance le moteur de l'histoire humaine. Pour lui, la conscience de soi ne peut exister qu'en étant reconnue par une autre conscience. La célèbre dialectique du maître et de l'esclave : deux hommes se battent non pour survivre, mais pour être reconnus. Celui qui accepte de mourir plutôt que de se soumettre devient le maître. Celui qui cède pour vivre devient l'esclave — et paradoxalement, c'est l'esclave qui, en travaillant, développe une conscience véritable.</p>
+      <p>Alexandre Kojève, commentant Hegel au XXe siècle, radicalise l'idée : toute action humaine est fondamentalement animée par le désir de reconnaissance. Les guerres, les révolutions, les carrières, les réseaux sociaux — même l'amour — sont des variantes de cette même soif d'être vu, reconnu, validé.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">La réponse stoïcienne à Hegel</p>
+        <h3>Pourquoi le Ghost refuse cette dialectique</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>La valeur ne se négocie pas</strong><p>Pour Épictète, la valeur d'un homme ne dépend pas de la reconnaissance des autres — elle dépend de sa vertu. Un esclave vertueux est plus libre qu'un empereur qui mendie l'approbation. La dialectique hégélienne présuppose que la valeur est externe. Le stoïcisme la pose comme interne et inaliénable.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>L'indifférence aux jugements comme libération</strong><p>Marc Aurèle revient sans cesse sur ce point : qu'est-ce que cela change à ta vertu que les autres la voient ou non ? L'Aigle ne chasse pas pour être observé. Il chasse parce que c'est sa nature. La reconnaissance est une conséquence possible — jamais un objectif.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>Sortir de la dialectique maître-esclave</strong><p>Le Ghost ne joue pas ce jeu. Ni maître ni esclave — il est hors-jeu. Non par mépris des autres, mais parce qu'il a compris que ce jeu n'a pas de fin et n'a pas de vainqueur. Celui qui en sort est le seul à gagner vraiment.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">III — Les réseaux sociaux comme machine à thumos</p>
+      <h2>L'architecture <em>du désir de validation</em></h2>
+      <p>Les réseaux sociaux n'ont pas inventé le désir de reconnaissance — ils l'ont industrialisé. Chaque like est une micro-dose de validation. Chaque silence est une micro-dose de rejet. Le cerveau humain, câblé pour chercher l'approbation sociale depuis 200 000 ans, n'a aucune défense naturelle contre une machine conçue précisément pour exploiter cette vulnérabilité.</p>
+      <p>Le paradoxe est brutal : plus on publie pour être reconnu, moins on est reconnu pour ce qu'on est vraiment. On est reconnu pour une performance de soi-même. Le moi réel disparaît derrière le moi projeté. C'est l'esclavage moderne le plus sophistiqué qui soit — on y entre volontairement, on y reste de plein gré, et on l'appelle liberté d'expression.</p>
+      <blockquote>Le plus grand obstacle à la vie, c'est l'attente qui compte sur demain et laisse passer aujourd'hui. Tu disposes de ce qui est en main du destin, tu laisses fuir ce qui est en ton pouvoir.<cite>Sénèque, Lettres à Lucilius, I.1</cite></blockquote>
+      <div class="ghost-section">
+        <p class="ghost-tag">Doctrine Ghost — L'Aigle et la visibilité</p>
+        <h3>Construire dans l'ombre, rayonner par la substance</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>La présence sans dépendance</strong><p>Le Ghost peut être présent sur les réseaux sociaux — il l'est. Mais avec une conscience claire : il publie ce qui est vrai, pas ce qui sera approuvé. La différence est abyssale. L'un nourrit la liberté. L'autre la ronge.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et le silence fécond</strong><p>Construire dans l'ombre n'est pas une privation — c'est un choix stratégique et philosophique. Ce qui se construit sans audience se construit avec plus de vérité. L'oeuvre de l'ombre résiste mieux que l'oeuvre faite pour être vue.</p></div></li>
+          <li><span class="pillar-icon">∞</span><div class="pillar-text"><strong>Le test de la solitude</strong><p>Une règle simple : ferais-tu la même chose si personne ne pouvait jamais le savoir ? Si la réponse est non, le désir de reconnaissance gouverne l'action. Si la réponse est oui, l'action est libre.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — La psychologie moderne confirme les Stoïciens</p>
+      <h2>De l'estime de soi <em>conditionnelle à inconditionnelle</em></h2>
+      <p>La psychologie contemporaine distingue deux formes d'estime de soi : l'estime contingente — qui dépend des succès, de l'approbation, des comparaisons sociales — et l'estime inconditionnelle, qui repose sur une valeur intérieure stable. Les recherches sont sans ambiguïté : l'estime contingente est corrélée à l'anxiété, à la dépression, à la fragilité psychologique. L'estime inconditionnelle est corrélée à la résilience, à la créativité, aux relations saines.</p>
+      <p>Les Stoïciens ont anticipé cette distinction de vingt siècles. Ce qu'ils appelaient la vertu comme seul bien réel, c'est précisément cette base inconditionnelle — une valeur qui ne fluctue pas avec les résultats, les opinions, les circonstances.</p>
+      <div class="exercise">
+        <p class="exercise-tag">Exercice Ghost — Le miroir sans public</p>
+        <h3>Cartographier son désir de reconnaissance</h3>
+        <p>Cet exercice se pratique le soir, en silence total. Il requiert une honnêteté brutale.</p>
+        <div class="exercise-rule">Trois actions d'aujourd'hui. Pas plus.</div>
+        <p><strong>Pour chacune, pose cette question unique :</strong><br/>L'aurais-je faite exactement de la même façon si personne — absolument personne — ne devait jamais le savoir ?</p>
+        <p>Ne cherche pas à te justifier. Observe simplement. La réponse honnête révèle où le thumos gouverne encore.</p>
+        <p><strong>La deuxième question :</strong><br/>Quand tu as reçu une critique aujourd'hui — réelle ou imaginée — combien de temps as-tu pensé ? Plus de cinq minutes signifie que ta paix dépend du jugement de l'autre.</p>
+        <div class="exercise-rule">« Le Ghost ne cherche pas à être vu.<br/>Il cherche à être. »</div>
+        <p>Avec la pratique régulière, tu commences à identifier le moment précis où le thumos s'active — avant même d'agir. C'est là que la liberté se gagne.</p>
+      </div>
+    </section>
+    <a class="nav-retour" href="le-desir.html">← Retour au Désir</a>
+  </main>
+  <div class="final-quote">
+    <p>« Ce n'est pas l'homme qui a peu qui est pauvre,<br/>mais celui qui désire davantage. »</p>
+    <cite>— Sénèque</cite>
+  </div>
+  <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
+</body>
+</html>

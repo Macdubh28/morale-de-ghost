@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Désir Mimétique — Morale de Ghost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --noir: #080808; --noir-doux: #0f0f0f; --pierre: #E8E0D0;
+      --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
+      --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
+      --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(201,169,110,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--or); text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--pierre); font-size: 1.4rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--or); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(8,8,8,0.99); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .nav-links.open { display: flex; }
+    }
+    .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(107,63,160,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(107,63,160,0.25); line-height: 1; margin-bottom: 0.5rem; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero-greek-label span { opacity: 0.7; }
+    .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero h1 em { display: block; color: var(--or); font-style: normal; }
+    .hero-sub { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pierre-faible); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+    .hero-intro { max-width: 660px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--pierre); opacity: 0.9; line-height: 1.9; }
+    .scroll-cta { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pierre-faible); text-transform: uppercase; cursor: pointer; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .scroll-cta:hover { color: var(--or); }
+    .scroll-cta::after { content: '\2193'; font-size: 1rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
+    .section h2 em { color: var(--or); font-style: normal; }
+    .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
+    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
+    .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
+    .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
+    .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .exercise p { margin-bottom: 1.2rem; opacity: 0.88; }
+    .exercise-rule { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--or); text-align: center; line-height: 2; margin: 1.5rem 0; font-style: italic; }
+    .nav-retour { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; margin: 4rem 0 0; transition: color 0.2s; }
+    .nav-retour:hover { color: var(--or); }
+    .final-quote { text-align: center; padding: 5rem 2rem; border-top: 1px solid rgba(201,169,110,0.08); }
+    .final-quote p { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem,3vw,1.7rem); font-style: italic; color: var(--blanc-casse); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .final-quote cite { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--or); text-transform: uppercase; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(201,169,110,0.06); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-transform: uppercase; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="index.html">Morale de Ghost</a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="le-desir.html">Le Désir</a></li>
+      <li><a href="desir-reconnaissance.html">Reconnaissance</a></li>
+      <li><a href="desir-controle.html">Contrôle</a></li>
+      <li><a href="desir-mimetique.html" class="active">Mimétique</a></li>
+      <li><a href="desir-charnel.html">Charnel</a></li>
+      <li><a href="desir-sens.html">Sens</a></li>
+      <li><a href="desir-pouvoir.html">Pouvoir</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <p class="hero-number">Le Désir — Facette III</p>
+    <p class="hero-greek">&#956;&#943;&#956;&#951;&#963;&#953;&#962;</p>
+    <p class="hero-greek-label">Mimêsis — L'imitation <span>·</span> Le triangle du désir <span>·</span> René Girard</p>
+    <h1>Le Désir<em>Mimétique</em></h1>
+    <p class="hero-sub">Tu ne désires pas les choses. Tu désires ce que l'autre désire. Girard l'a prouvé. Le Ghost s'en extrait.</p>
+    <p class="hero-intro">René Girard a mis au jour une vérité que les Stoïciens pressentaient sans la nommer : le désir humain est fondamentalement imitation. On ne désire pas spontanément — on désire par contagion. Le médiateur du désir n'est pas l'objet, mais l'autre qui le désire. Comprendre cela, c'est comprendre les guerres, les modes, les bulles financières, les réseaux sociaux — et sa propre vie.</p>
+    <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
+  </header>
+  <main id="contenu">
+    <section class="section">
+      <p class="section-tag">I — Le triangle de Girard</p>
+      <h2>Sujet, médiateur, objet — <em>la structure cachée du désir</em></h2>
+      <p>La thèse de René Girard, développée dans <em>Mensonge romantique et vérité romanesque</em> (1961), renverse l'idée commune du désir. On croit désirer spontanément un objet. En réalité, on désire toujours par l'intermédiaire d'un modèle — un médiateur — qui désire ou semble désirer cet objet. Le désir n'est pas une ligne droite entre un sujet et un objet : c'est un triangle.</p>
+      <p>L'enfant désire le jouet que l'autre enfant tient — pas parce que ce jouet est objectivement supérieur, mais parce que l'autre le désire. L'adulte désire le poste, le partenaire, le style de vie qu'il voit chez son voisin ou sur son écran. Plus le médiateur est proche et semblable, plus le désir est intense — et plus la rivalité est féroce.</p>
+      <blockquote>L'homme du désir mimétique ne sait pas ce qu'il veut. Il veut ce que veut son modèle — et se retrouve en compétition avec lui sans jamais comprendre pourquoi.<cite>René Girard, Mensonge romantique et vérité romanesque</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">II — Les réseaux sociaux comme machine mimétique</p>
+      <h2>L'algorithme qui <em>industrialise l'imitation</em></h2>
+      <p>Les réseaux sociaux sont la machine à désir mimétique la plus puissante jamais construite. Leur architecture est conçue précisément pour maximiser l'exposition aux médiateurs — des personnes légèrement au-dessus de soi dans la hiérarchie sociale perçue, suffisamment proches pour être des modèles crédibles, suffisamment éloignées pour alimenter l'aspiration.</p>
+      <p>Le résultat est une inflation permanente du désir. On ne sait plus ce qu'on veut vraiment — on sait seulement ce que les autres semblent avoir et qu'on n'a pas. L'insatisfaction devient structurelle, non pas parce que la vie est pauvre, mais parce que le flux de médiateurs est infini et que chacun d'eux déclenche un nouveau désir non satisfait.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Girard et les Stoïciens — la convergence</p>
+        <h3>Deux diagnostics, une même liberté</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>Girard : identifier le médiateur</strong><p>La première étape de la libération girardienne est la lucidité : reconnaître que ce qu'on désire vient d'un modèle, pas de soi-même. Cette reconnaissance suffit souvent à dissoudre le désir — ou à lui donner une autre qualité.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>Épictète : désirer ce qui dépend de soi</strong><p>La réponse stoïcienne complète Girard : une fois le médiateur identifié, rediriger le désir vers ce qui est authentiquement en son pouvoir. Non pas imiter — mais incarner. La différence entre suivre un modèle et devenir soi-même.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>La convergence : le désir autonome</strong><p>Girard appelle cela le désir selon l'Esprit — par opposition au désir selon la Chair mimétique. Les Stoïciens appellent cela la boulêsis — la volonté rationnelle. Les deux pointent vers la même chose : un désir qui vient de l'intérieur, pas de la contagion.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">III — La violence mimétique</p>
+      <h2>Quand l'imitation <em>devient rivalité</em></h2>
+      <p>Girard observe que le désir mimétique génère inévitablement de la rivalité. Plus deux personnes désirent la même chose par imitation mutuelle, plus elles deviennent semblables — et plus leur rivalité s'intensifie. Les frères ennemis, les collègues en compétition, les nations en guerre : la même structure triangulaire à chaque fois, amplifiée jusqu'à la violence.</p>
+      <p>Le bouc émissaire est la solution primitive à cette violence mimétique : concentrer la violence collective sur un individu ou un groupe pour restaurer temporairement la paix sociale. Girard voit dans ce mécanisme la clé de voûte de toutes les cultures humaines primitives — et de beaucoup de dynamiques modernes.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Doctrine Ghost — Sortir du triangle</p>
+        <h3>L'Aigle qui ne rivalise pas</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>La hauteur comme protection</strong><p>L'Aigle ne rivalise pas parce qu'il vole à une altitude où la rivalité mimétique n'existe pas. Ce n'est pas de l'arrogance — c'est une position. Quand tu te compares, tu descends au niveau de la comparaison. Quand tu construis, tu n'as pas le temps de te comparer.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et l'identité forgée</strong><p>Le désir mimétique n'a de prise que sur celui qui n'a pas d'identité propre. Macdubh — fils du noir — se forge dans l'adversité une identité que rien d'extérieur ne peut définir. Quand tu sais qui tu es, tu n'as pas besoin de te définir par rapport à l'autre.</p></div></li>
+          <li><span class="pillar-icon">∞</span><div class="pillar-text"><strong>Le seul modèle légitime : soi-même en mieux</strong><p>Marc Aurèle avait des modèles — son père adoptif Antonin, Épictète qu'il n'a jamais rencontré. Mais il les utilisait non pour les imiter, mais pour s'élever. La distinction est capitale : le modèle comme direction, pas comme objet de désir.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — Exercice</p>
+      <div class="exercise">
+        <p class="exercise-tag">Exercice Ghost — Tracer le triangle</p>
+        <h3>Identifier ses médiateurs cachés</h3>
+        <p>Cet exercice demande une honnêteté rare. Il révèle les désirs qui ne t'appartiennent pas vraiment.</p>
+        <div class="exercise-rule">Prends trois désirs actuels — professionnels, matériels, sociaux.</div>
+        <p><strong>Pour chacun, pose cette question :</strong><br/>Si personne dans ton entourage, sur tes écrans, dans ta vie ne désirait cela — le désirerais-tu encore ?</p>
+        <p><strong>Si la réponse est non ou incertaine :</strong><br/>Identifie le médiateur. Qui désire cela et que tu regardes ? Pourquoi ce modèle a-t-il ce pouvoir sur toi ? Qu'est-ce que son désir dit de ta propre insécurité ?</p>
+        <p><strong>Si la réponse est oui :</strong><br/>Ce désir est potentiellement authentique. Teste-le encore : depuis quand le ressens-tu ? A-t-il résisté à l'absence de validation externe ?</p>
+        <div class="exercise-rule">« Désire ce que tu es — pas ce que l'autre a. »</div>
+      </div>
+    </section>
+    <a class="nav-retour" href="le-desir.html">← Retour au Désir</a>
+  </main>
+  <div class="final-quote">
+    <p>« Cesse de regarder ce que font les autres.<br/>Regarde ce que tu es en train de devenir. »</p>
+    <cite>— Aurelius Secundus</cite>
+  </div>
+  <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
+</body>
+</html>

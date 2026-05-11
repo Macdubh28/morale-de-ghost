@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Désir de Sens — Morale de Ghost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --noir: #080808; --noir-doux: #0f0f0f; --pierre: #E8E0D0;
+      --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
+      --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
+      --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(201,169,110,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--or); text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--pierre); font-size: 1.4rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--or); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(8,8,8,0.99); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .nav-links.open { display: flex; }
+    }
+    .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(107,63,160,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(107,63,160,0.25); line-height: 1; margin-bottom: 0.5rem; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero-greek-label span { opacity: 0.7; }
+    .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero h1 em { display: block; color: var(--or); font-style: normal; }
+    .hero-sub { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pierre-faible); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+    .hero-intro { max-width: 660px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--pierre); opacity: 0.9; line-height: 1.9; }
+    .scroll-cta { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pierre-faible); text-transform: uppercase; cursor: pointer; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .scroll-cta:hover { color: var(--or); }
+    .scroll-cta::after { content: '\2193'; font-size: 1rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
+    .section h2 em { color: var(--or); font-style: normal; }
+    .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
+    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
+    .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
+    .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
+    .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .exercise p { margin-bottom: 1.2rem; opacity: 0.88; }
+    .exercise-rule { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--or); text-align: center; line-height: 2; margin: 1.5rem 0; font-style: italic; }
+    .nav-retour { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; margin: 4rem 0 0; transition: color 0.2s; }
+    .nav-retour:hover { color: var(--or); }
+    .final-quote { text-align: center; padding: 5rem 2rem; border-top: 1px solid rgba(201,169,110,0.08); }
+    .final-quote p { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem,3vw,1.7rem); font-style: italic; color: var(--blanc-casse); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .final-quote cite { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--or); text-transform: uppercase; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(201,169,110,0.06); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-transform: uppercase; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="index.html">Morale de Ghost</a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="le-desir.html">Le Désir</a></li>
+      <li><a href="desir-reconnaissance.html">Reconnaissance</a></li>
+      <li><a href="desir-controle.html">Contrôle</a></li>
+      <li><a href="desir-mimetique.html">Mimétique</a></li>
+      <li><a href="desir-charnel.html">Charnel</a></li>
+      <li><a href="desir-sens.html" class="active">Sens</a></li>
+      <li><a href="desir-pouvoir.html">Pouvoir</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <p class="hero-number">Le Désir — Facette V</p>
+    <p class="hero-greek">&#955;&#972;&#947;&#959;&#962;</p>
+    <p class="hero-greek-label">Logos — Le sens <span>·</span> Viktor Frankl <span>·</span> Amor Fati</p>
+    <h1>Le Désir<em>de Sens</em></h1>
+    <p class="hero-sub">L'homme peut tout endurer s'il sait pourquoi. Frankl l'a prouvé dans les camps. Les Stoïciens l'avaient écrit avant lui.</p>
+    <p class="hero-intro">Le désir de sens est le plus profond de tous — parce que c'est le seul qui ne peut pas être satisfait par un objet extérieur. On peut obtenir la reconnaissance, le contrôle, le plaisir charnel. Le sens, lui, ne s'obtient pas — il se construit, ou il se révèle dans l'épreuve. Viktor Frankl et les Stoïciens convergent vers la même vérité : le sens n'est pas donné. Il est choisi.</p>
+    <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
+  </header>
+  <main id="contenu">
+    <section class="section">
+      <p class="section-tag">I — Viktor Frankl et la will to meaning</p>
+      <h2>Ce que les camps <em>ont révélé sur le sens</em></h2>
+      <p>Viktor Frankl était psychiatre viennois quand il fut déporté à Auschwitz en 1944. Il y perdit sa femme, ses parents, son frère. Ce qu'il y observa — sur lui-même et sur les autres détenus — forma la base de la logothérapie et de son livre <em>Man's Search for Meaning</em> (1946).</p>
+      <p>Son observation centrale : ce n'est pas la souffrance qui brise les hommes — c'est la souffrance sans sens. Les détenus qui survivaient psychologiquement le mieux n'étaient pas les plus forts physiquement, ni les mieux nourris. C'étaient ceux qui avaient une raison de survivre — une mission, une personne, une oeuvre inachevée. Le sens comme bouclier contre l'annihilation.</p>
+      <blockquote>Celui qui a un pourquoi pour vivre peut supporter presque n'importe quel comment.<cite>Viktor Frankl, citant Nietzsche dans Man's Search for Meaning</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">II — Les Stoïciens et le Logos</p>
+      <h2>Le sens comme <em>structure du réel</em></h2>
+      <p>Pour les Stoïciens, le sens n'est pas une construction subjective — c'est une réalité objective inscrite dans la nature des choses. Le <em>Logos</em> stoïcien est à la fois la raison universelle qui ordonne le cosmos et la raison particulière qui habite chaque être humain. Vivre selon le Logos, c'est vivre en accord avec la structure rationnelle du réel.</p>
+      <p>Cette vision implique que chaque événement — même le plus douloureux — s'inscrit dans un ordre plus large. Non pas que tout arrive pour le mieux au sens naïf, mais que tout ce qui arrive peut être intégré dans une vie vécue avec vertu. L'<em>Amor Fati</em> — l'amour du destin — n'est pas de la résignation : c'est l'affirmation active que ce qui arrive est exactement le matériau avec lequel on doit travailler.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Frankl et les Stoïciens — la convergence</p>
+        <h3>Deux chemins vers la même liberté</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>La liberté ultime — choisir sa réponse</strong><p>Frankl : entre le stimulus et la réponse, il y a un espace. Dans cet espace réside notre liberté. Épictète : ce n'est pas ce qui arrive qui nous trouble, mais le jugement qu'on en porte. Deux formulations d'une même vérité — la liberté intérieure est inaliénable.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>La souffrance comme matériau</strong><p>Frankl voyait dans la souffrance inévitable une opportunité de transcendance — non pas de la chercher, mais de l'utiliser quand elle vient. Les Stoïciens appelaient cela <em>amor fati</em>. Macdubh l'appelle l'épreuve qui forge.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>La mission comme ancrage</strong><p>Frankl prescrivait à ses patients de trouver leur mission unique et irremplaçable. Les Stoïciens parlaient du <em>kathêkon</em> — le devoir approprié à chaque être selon sa nature. Dans les deux cas : le sens vient de l'action orientée, pas de la contemplation passive.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">III — Le désir de sens comme piège</p>
+      <h2>Quand la quête de sens <em>devient elle-même une prison</em></h2>
+      <p>Il existe un paradoxe cruel dans le désir de sens : trop le chercher directement le fait fuir. Frankl l'appelait l'hyperintention — l'effort conscient et crispé pour trouver un sens qui, par sa tension même, empêche la découverte. Le sens, comme le sommeil, ne vient que quand on cesse de le forcer.</p>
+      <p>La version moderne de ce piège est la quête obsessionnelle de purpose — ce mot anglais que tous les coachs de développement personnel ont transformé en Graal. Des milliers de gens passent des années à chercher leur mission sans jamais agir, attendant une révélation qui ne viendra pas de la contemplation mais de l'action. Le sens se découvre en faisant, pas en cherchant.</p>
+      <blockquote>Ne cherche pas que les choses que tu fais aient un sens. Fais les choses — et le sens émergera de l'action juste.<cite>Marc Aurèle, Pensées, IX.6</cite></blockquote>
+      <div class="ghost-section">
+        <p class="ghost-tag">Doctrine Ghost — Le sens comme conséquence</p>
+        <h3>L'Aigle ne cherche pas le sens — il le crée</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>La mission comme altitude</strong><p>L'Aigle ne se demande pas pourquoi il vole — il vole. La question du sens est résolue par l'action elle-même. L'écosystème Ghost, la Morale de Ghost, La Citadelle Intérieure — ce ne sont pas des quêtes de sens. Ce sont des actes. Le sens en est la conséquence.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>L'épreuve comme révélateur</strong><p>Macdubh ne cherche pas le sens dans l'adversité — il le forge à travers elle. Ce n'est pas l'épreuve qui donne le sens : c'est la réponse à l'épreuve. Chaque fois que tu choisis de te relever, tu crées du sens là où il n'y en avait pas.</p></div></li>
+          <li><span class="pillar-icon">∞</span><div class="pillar-text"><strong>Amor Fati — aimer ce qui est</strong><p>La formule de Nietzsche, adoptée par les néo-stoïciens : ne pas seulement accepter ce qui arrive, mais l'aimer. Non par masochisme — par affirmation. Ce qui est arrivé est le matériau de ce que tu construis. Le nier, c'est gaspiller la matière première.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — Exercice</p>
+      <div class="exercise">
+        <p class="exercise-tag">Exercice Ghost — La lettre du futur</p>
+        <h3>Ancrer le sens dans l'action présente</h3>
+        <p>Cet exercice vient de la logothérapie de Frankl, adapté à la doctrine Ghost. Il se pratique une fois par mois, dans le silence.</p>
+        <div class="exercise-rule">Imagine-toi dans dix ans. Tu regardes en arrière.</div>
+        <p><strong>Question 1 :</strong> Quelle est la chose que tu es en train de construire maintenant — et dont tu seras fier dans dix ans, indépendamment du résultat visible ?</p>
+        <p><strong>Question 2 :</strong> Si tu disparaissais demain — quelle serait la chose inachevée qui te manquerait le plus ? Ce n'est pas forcément ce que tu crois devoir faire. C'est souvent ce que tu repousses.</p>
+        <p><strong>Question 3 :</strong> L'adversité que tu traverses actuellement — quel homme est-elle en train de forger ? Pas ce qu'elle t'enlève. Ce qu'elle t'oblige à devenir.</p>
+        <div class="exercise-rule">« Le sens ne se trouve pas.<br/>Il se construit — une action juste à la fois. »</div>
+      </div>
+    </section>
+    <a class="nav-retour" href="le-desir.html">← Retour au Désir</a>
+  </main>
+  <div class="final-quote">
+    <p>« Celui qui sait pourquoi il vit<br/>peut supporter presque n'importe quel comment. »</p>
+    <cite>— Viktor Frankl</cite>
+  </div>
+  <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
+</body>
+</html>

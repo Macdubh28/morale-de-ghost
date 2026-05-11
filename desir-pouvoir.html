@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Désir de Pouvoir — Morale de Ghost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --noir: #080808; --noir-doux: #0f0f0f; --pierre: #E8E0D0;
+      --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
+      --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
+      --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(201,169,110,0.15); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--or); text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--pierre); font-size: 1.4rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--or); }
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: rgba(8,8,8,0.99); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .nav-links.open { display: flex; }
+    }
+    .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(107,63,160,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(107,63,160,0.25); line-height: 1; margin-bottom: 0.5rem; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero-greek-label span { opacity: 0.7; }
+    .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero h1 em { display: block; color: var(--or); font-style: normal; }
+    .hero-sub { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--pierre-faible); max-width: 540px; margin: 0 auto 3rem; line-height: 1.6; }
+    .hero-intro { max-width: 660px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--pierre); opacity: 0.9; line-height: 1.9; }
+    .scroll-cta { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pierre-faible); text-transform: uppercase; cursor: pointer; background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .scroll-cta:hover { color: var(--or); }
+    .scroll-cta::after { content: '\2193'; font-size: 1rem; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
+    .section h2 em { color: var(--or); font-style: normal; }
+    .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
+    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
+    blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
+    .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
+    .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
+    .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
+    .exercise p { margin-bottom: 1.2rem; opacity: 0.88; }
+    .exercise-rule { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--or); text-align: center; line-height: 2; margin: 1.5rem 0; font-style: italic; }
+    .nav-retour { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-decoration: none; text-transform: uppercase; margin: 4rem 0 0; transition: color 0.2s; }
+    .nav-retour:hover { color: var(--or); }
+    .final-quote { text-align: center; padding: 5rem 2rem; border-top: 1px solid rgba(201,169,110,0.08); }
+    .final-quote p { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem,3vw,1.7rem); font-style: italic; color: var(--blanc-casse); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .final-quote cite { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--or); text-transform: uppercase; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(201,169,110,0.06); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pierre-faible); text-transform: uppercase; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-brand" href="index.html">Morale de Ghost</a>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Doctrine</a></li>
+      <li><a href="lois.html">Les Lois</a></li>
+      <li><a href="le-desir.html">Le Désir</a></li>
+      <li><a href="desir-reconnaissance.html">Reconnaissance</a></li>
+      <li><a href="desir-controle.html">Contrôle</a></li>
+      <li><a href="desir-mimetique.html">Mimétique</a></li>
+      <li><a href="desir-charnel.html">Charnel</a></li>
+      <li><a href="desir-sens.html">Sens</a></li>
+      <li><a href="desir-pouvoir.html" class="active">Pouvoir</a></li>
+    </ul>
+  </nav>
+  <header class="hero">
+    <p class="hero-number">Le Désir — Facette VI</p>
+    <p class="hero-greek">&#954;&#961;&#940;&#964;&#959;&#962;</p>
+    <p class="hero-greek-label">Kratos — La puissance <span>·</span> Nietzsche vs les Stoïciens <span>·</span> Le pouvoir sur soi</p>
+    <h1>Le Désir<em>de Pouvoir</em></h1>
+    <p class="hero-sub">Nietzsche voulait dominer le monde. Les Stoïciens voulaient se dominer eux-mêmes. L'un est une guerre sans fin. L'autre est une victoire possible.</p>
+    <p class="hero-intro">Le désir de pouvoir est peut-être le plus ambigu de tous — parce qu'il peut être la source de la plus grande grandeur ou de la plus grande destruction. Nietzsche en a fait le moteur de toute vie. Les Stoïciens l'ont retourné vers l'intérieur. Le Ghost opère la synthèse : le pouvoir sur soi comme condition du pouvoir juste sur le monde.</p>
+    <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
+  </header>
+  <main id="contenu">
+    <section class="section">
+      <p class="section-tag">I — Nietzsche et la volonté de puissance</p>
+      <h2>Le moteur de toute vie — <em>ou son poison</em></h2>
+      <p>Pour Nietzsche, la <em>Wille zur Macht</em> — la volonté de puissance — n'est pas d'abord un désir de domination politique ou sociale. C'est le désir fondamental de toute vie de se dépasser, de croître, d'exercer sa force. La plante qui pousse vers la lumière, l'artiste qui crée, le guerrier qui combat — tous expriment la même volonté de puissance.</p>
+      <p>Nietzsche méprisait le stoïcisme pour ce qu'il percevait comme une castration du désir — une philosophie de la résignation déguisée en sagesse. Il avait tort sur ce point, mais sa critique pointe vers une tension réelle : jusqu'où la maîtrise stoïcienne du désir est-elle libération, et à partir de quand devient-elle inhibition de la vie elle-même ?</p>
+      <blockquote>Ce qui ne me tue pas me rend plus fort. Mais ce qui me rend plus fort doit d'abord vouloir me tuer.<cite>Friedrich Nietzsche, Le Crépuscule des idoles</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">II — La réponse stoïcienne</p>
+      <h2>Le seul pouvoir <em>qui ne se perd jamais</em></h2>
+      <p>Les Stoïciens n'étaient pas contre le pouvoir. Marc Aurèle était l'homme le plus puissant du monde occidental. Sénèque était le conseiller de Néron. Caton refusait de vivre sous la tyrannie de César et choisit la mort plutôt que la soumission. Ce n'est pas une philosophie de l'impuissance.</p>
+      <p>Mais les Stoïciens avaient compris quelque chose que Nietzsche refusait d'admettre : le pouvoir sur les autres est fondamentalement instable. Il dépend de circonstances extérieures, de la force physique, de la fortune politique. Le seul pouvoir véritablement inaliénable — le seul qui résiste à tout, même à la mort — est le pouvoir sur soi-même. Épictète, esclave et infirme, était plus libre que Néron.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">La synthèse Ghost — Nietzsche discipliné par Épictète</p>
+        <h3>Le pouvoir qui construit sans détruire</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>La volonté de puissance orientée vers l'intérieur</strong><p>L'Aigle ne cherche pas à dominer les autres — il cherche à s'élever. Cette élévation est une forme de volonté de puissance au sens nietzschéen — mais dirigée non vers la domination externe, vers la maîtrise interne. C'est là que réside la vraie puissance.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et le dépassement de soi</strong><p>Nietzsche voulait le Surhomme — celui qui se dépasse. Macdubh incarne cette aspiration mais dans le cadre stoïcien : le dépassement de soi ne signifie pas l'abolition des limites morales, mais leur transformation en force. On ne se dépasse pas en brisant les règles — on se dépasse en les incarnant pleinement.</p></div></li>
+          <li><span class="pillar-icon">🐂</span><div class="pillar-text"><strong>Le Taureau et la puissance endurante</strong><p>La puissance nietzschéenne est souvent explosive, instantanée, spectaculaire. La puissance stoïcienne est continue, silencieuse, implacable. Le Taureau avance. Pas pour être vu avancer — pour arriver. C'est la puissance la plus redoutable qui soit : celle qui ne s'épuise pas.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">III — Marc Aurèle — le pouvoir absolu discipliné</p>
+      <h2>L'homme le plus puissant du monde <em>qui se bat contre lui-même</em></h2>
+      <p>Marc Aurèle est l'argument vivant contre Nietzsche. Il avait le pouvoir absolu — vie et mort sur des millions d'hommes, ressources illimitées, armées à sa disposition. Et il passait ses nuits à s'écrire des rappels pour ne pas abuser de ce pouvoir, pour rester humble, pour traiter ses ennemis avec justice.</p>
+      <p>Ce n'est pas de la faiblesse. C'est la forme la plus rare et la plus difficile de puissance : se discipliner quand rien ne t'y oblige. Nietzsche cherchait des surhommes dans les conquérants et les artistes. Marc Aurèle était le surhomme — et il ne le savait pas, parce qu'il était trop occupé à travailler sur ses propres failles.</p>
+      <blockquote>Si ce n'est pas juste, ne le fais pas. Si ce n'est pas vrai, ne le dis pas. Et pour ta propre impulsion — c'est toujours en ton pouvoir.<cite>Marc Aurèle, Pensées, XII.17</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — Le pouvoir comme responsabilité</p>
+      <h2>Gouverner les autres <em>commence par se gouverner soi</em></h2>
+      <p>La doctrine politique stoïcienne est simple et radicale : nul n'est digne de gouverner les autres s'il ne se gouverne pas lui-même. Ce principe — que Platon formulait déjà avec le philosophe-roi — est chez les Stoïciens une exigence quotidienne, pas une théorie politique abstraite.</p>
+      <p>Dans l'écosystème Ghost, cette doctrine s'applique à tous les niveaux : gouverner sa parole avant de diriger des équipes, gouverner ses émotions avant de gérer des conflits, gouverner ses désirs avant de prendre des décisions stratégiques. Le pouvoir juste est toujours précédé par la maîtrise intérieure. Sans elle, le pouvoir corrompt — exactement comme Nietzsche le démontrait sans le voir.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Doctrine Ghost — La hiérarchie du pouvoir</p>
+        <h3>Trois niveaux de puissance</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>Niveau I — Le pouvoir sur soi</strong><p>Jugements, impulsions, désirs, réponses émotionnelles. C'est le fondement. Sans lui, tout le reste est construction sur sable. C'est le niveau que l'écosystème Ghost construit en priorité — HEGEMONIKON, OBSCURO, la Morale de Ghost sont tous des outils de ce niveau.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>Niveau II — Le pouvoir sur son oeuvre</strong><p>Ce qu'on crée, ce qu'on construit, ce qu'on laisse. Ce niveau devient accessible quand le niveau I est solide. L'écosystème Ghost en est l'expression — une oeuvre construite dans la discipline, pas dans le besoin de reconnaissance.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>Niveau III — Le pouvoir sur le monde</strong><p>L'influence sur les autres, les institutions, l'histoire. Ce niveau n'est légitime que si les deux premiers sont en ordre. Marc Aurèle l'illustre parfaitement : sa puissance sur le monde était proportionnelle à sa discipline intérieure.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">V — Exercice</p>
+      <div class="exercise">
+        <p class="exercise-tag">Exercice Ghost — L'audit de puissance</p>
+        <h3>Cartographier sa souveraineté réelle</h3>
+        <p>Cet exercice se pratique une fois par mois. Il est inconfortable — c'est son utilité.</p>
+        <div class="exercise-rule">Trois niveaux. Une question par niveau.</div>
+        <p><strong>Niveau I — Sur toi-même :</strong><br/>Dans quel domaine tes impulsions gouvernent-elles encore à la place de ta raison ? Colère, procrastination, désir, peur ? Identifie le domaine précis — pas en général. Précisément.</p>
+        <p><strong>Niveau II — Sur ton oeuvre :</strong><br/>Est-ce que tu construis quelque chose qui existerait sans toi ? Quelque chose qui a une valeur propre, indépendante de ta présence ? Ou est-ce que tu remplis des cases ?</p>
+        <p><strong>Niveau III — Sur le monde :</strong><br/>Ton influence actuelle sur les autres — vient-elle de ta discipline ou de ta position ? Si tu perdais ta position demain, resterait-il quelque chose ? Ce qui reste, c'est ta puissance réelle.</p>
+        <div class="exercise-rule">« Gouverne-toi d'abord.<br/>Le reste suivra — ou n'aura pas d'importance. »</div>
+      </div>
+    </section>
+    <a class="nav-retour" href="le-desir.html">← Retour au Désir</a>
+  </main>
+  <div class="final-quote">
+    <p>« Le plus puissant est celui<br/>qui a lui-même en son pouvoir. »</p>
+    <cite>— Sénèque</cite>
+  </div>
+  <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
+</body>
+</html>
