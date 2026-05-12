@@ -16,7 +16,7 @@
       --pierre-faible: #a09080; --pourpre: #6B3FA0; --pourpre-clair: #8B5FC0;
       --pourpre-trace: rgba(107,63,160,0.15); --or: #C9A96E;
       --or-faible: rgba(201,169,110,0.2); --blanc-casse: #f5f0e8;
-      --feu: #C0392B; --feu-faible: rgba(192,57,43,0.08); --feu-trace: rgba(192,57,43,0.25);
+      --braise: #C0392B; --braise-clair: #E05040; --braise-trace: rgba(192,57,43,0.12);
     }
     html { scroll-behavior: smooth; }
     body { background: var(--noir); color: var(--pierre); font-family: 'Crimson Text', Georgia, serif; font-size: 1.15rem; line-height: 1.8; min-height: 100vh; }
@@ -32,10 +32,10 @@
       .nav-links.open { display: flex; }
     }
     .hero { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(192,57,43,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 30% 70%, rgba(107,63,160,0.06) 0%, transparent 60%); pointer-events: none; }
-    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
-    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(192,57,43,0.2); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
-    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(192,57,43,0.10) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 30% 70%, rgba(201,169,110,0.04) 0%, transparent 60%); pointer-events: none; }
+    .hero-number { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--braise-clair); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-greek { font-family: 'Crimson Text', serif; font-size: clamp(3rem,10vw,6rem); color: rgba(192,57,43,0.22); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .hero-greek-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--braise-clair); text-transform: uppercase; margin-bottom: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
     .hero-greek-label span { opacity: 0.7; }
     .hero h1 { font-family: 'Cinzel Decorative', serif; font-size: clamp(2rem,6vw,3.8rem); font-weight: 700; color: var(--blanc-casse); line-height: 1.2; margin-bottom: 1.5rem; }
     .hero h1 em { display: block; color: var(--or); font-style: normal; }
@@ -47,53 +47,35 @@
     @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
     main { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
     .section { padding: 5rem 0; border-top: 1px solid rgba(201,169,110,0.08); }
-    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(107,63,160,0.4), transparent); }
+    .section-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--braise-clair); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(192,57,43,0.4), transparent); }
     .section h2 { font-family: 'Cinzel', serif; font-size: clamp(1.4rem,3vw,2rem); color: var(--blanc-casse); margin-bottom: 2rem; line-height: 1.3; }
     .section h2 em { color: var(--or); font-style: normal; }
     .section p { margin-bottom: 1.4rem; color: var(--pierre); opacity: 0.92; }
-    .trois-temps { display: flex; flex-direction: column; gap: 0; margin: 2.5rem 0; }
-    .temps-item { display: flex; gap: 1.5rem; align-items: flex-start; position: relative; }
-    .temps-item:not(:last-child)::after { content: ''; position: absolute; left: 1.5rem; top: 3rem; width: 1px; height: 100%; background: linear-gradient(to bottom, var(--feu), transparent); }
-    .temps-number { width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.7rem; flex-shrink: 0; }
-    .temps-number.involontaire { background: rgba(192,57,43,0.05); border: 1px solid rgba(192,57,43,0.2); color: rgba(192,57,43,0.6); }
-    .temps-number.assentiment { background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.4); color: var(--feu); }
-    .temps-number.impulsion { background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.6); color: var(--feu); }
-    .temps-content { padding: 0.75rem 0 2rem; }
-    .temps-content .t-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.3rem; color: rgba(192,57,43,0.6); }
-    .temps-content .t-title { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--blanc-casse); margin-bottom: 0.5rem; }
-    .temps-content p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
-    .temps-highlight { display: inline-block; margin-top: 0.5rem; padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; }
-    .temps-highlight.libre { background: var(--pourpre-trace); border: 1px solid rgba(107,63,160,0.3); color: var(--pourpre-clair); }
-    .temps-highlight.danger { background: rgba(192,57,43,0.1); border: 1px solid rgba(192,57,43,0.3); color: var(--feu); }
-    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--pourpre); background: rgba(107,63,160,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
-    blockquote.feu { border-left-color: var(--feu); background: var(--feu-faible); }
+    .concept-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.5rem; margin: 2.5rem 0; }
+    .concept-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(201,169,110,0.12); border-top: 2px solid var(--braise); padding: 1.5rem; border-radius: 2px; }
+    .concept-card .greek { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-style: italic; color: var(--braise-clair); margin-bottom: 0.3rem; }
+    .concept-card .latin { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .concept-card p { font-size: 0.95rem; margin: 0; opacity: 0.8; }
+    .mechanism { margin: 2.5rem 0; position: relative; }
+    .mechanism-step { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 0; position: relative; }
+    .mechanism-step:not(:last-child)::after { content: ''; position: absolute; left: 1.5rem; top: 3rem; width: 1px; height: 100%; background: linear-gradient(to bottom, var(--braise), transparent); }
+    .step-number { width: 3rem; height: 3rem; border-radius: 50%; background: var(--braise-trace); border: 1px solid var(--braise); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--braise-clair); flex-shrink: 0; }
+    .step-content { padding: 0.75rem 0 2rem; }
+    .step-content .step-greek { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--braise-clair); margin-bottom: 0.3rem; }
+    .step-content .step-title { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--or); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .step-content p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
+    .step-highlight { background: var(--braise-trace); border: 1px solid rgba(192,57,43,0.3); border-radius: 2px; padding: 0.4rem 0.8rem; display: inline-block; margin-top: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--braise-clair); text-transform: uppercase; }
+    blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--braise); background: rgba(192,57,43,0.05); font-style: italic; font-size: 1.15rem; color: var(--blanc-casse); line-height: 1.7; }
     blockquote cite { display: block; margin-top: 0.75rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--or); font-style: normal; text-transform: uppercase; }
-    .inutile-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.5rem; margin: 2.5rem 0; }
-    .inutile-card { background: var(--feu-faible); border: 1px solid var(--feu-trace); border-top: 2px solid var(--feu); padding: 1.5rem; border-radius: 2px; }
-    .inutile-card .i-num { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(192,57,43,0.6); text-transform: uppercase; margin-bottom: 0.5rem; }
-    .inutile-card .i-title { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--blanc-casse); margin-bottom: 0.5rem; }
-    .inutile-card p { font-size: 0.9rem; margin: 0; opacity: 0.8; }
-    .ghost-section { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.2); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
-    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--pourpre-clair); text-transform: uppercase; margin-bottom: 1rem; }
+    .ghost-section { background: rgba(192,57,43,0.05); border: 1px solid rgba(192,57,43,0.18); border-radius: 2px; padding: 2.5rem; margin: 2.5rem 0; }
+    .ghost-section .ghost-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--braise-clair); text-transform: uppercase; margin-bottom: 1rem; }
     .ghost-section h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
     .pillars-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
     .pillars-list li { display: flex; gap: 1rem; align-items: flex-start; }
     .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
     .pillar-text strong { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--or); text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
     .pillar-text p { font-size: 0.95rem; margin: 0; opacity: 0.85; }
-    .transformation { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin: 2.5rem 0; }
-    @media (max-width: 560px) { .transformation { grid-template-columns: 1fr; } }
-    .transf-from { background: var(--feu-faible); border: 1px solid var(--feu-trace); border-radius: 2px; padding: 1.5rem; text-align: center; }
-    .transf-to { background: var(--or-faible); border: 1px solid rgba(201,169,110,0.2); border-radius: 2px; padding: 1.5rem; text-align: center; }
-    .transf-arrow { font-size: 1.5rem; color: var(--pierre-faible); text-align: center; }
-    .transf-label { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .transf-from .transf-label { color: rgba(192,57,43,0.6); }
-    .transf-to .transf-label { color: var(--or); }
-    .transf-value { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; }
-    .transf-from .transf-value { color: rgba(192,57,43,0.8); }
-    .transf-to .transf-value { color: var(--or); }
-    .transf-desc { font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7; }
     .exercise { background: rgba(255,255,255,0.015); border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--or); padding: 2.5rem; margin: 2.5rem 0; border-radius: 2px; }
     .exercise-tag { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--or); text-transform: uppercase; margin-bottom: 1rem; }
     .exercise h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--blanc-casse); margin-bottom: 1.5rem; }
@@ -121,150 +103,227 @@
       <li><a href="silence.html">Le Silence</a></li>
       <li><a href="relation.html">L'Autre</a></li>
       <li><a href="le-desir.html">Le Désir</a></li>
-      <li><a href="le-temps.html">Le Temps</a></li>
       <li><a href="la-colere.html" class="active">La Colère</a></li>
       <li><a href="logos.html">Logos</a></li>
     </ul>
   </nav>
   <header class="hero">
-    <p class="hero-number">XV — La Colère</p>
+    <p class="hero-number">XIV — La Colère</p>
     <p class="hero-greek">Ὀργή</p>
-    <p class="hero-greek-label">Orgê — La colère <span>·</span> De Ira — Sénèque <span>·</span> Premier mouvement — ce qui est inévitable</p>
-    <h1>La passion<em>la plus inutile</em></h1>
-    <p class="hero-sub">La colère ne répare rien. Elle n'obtient rien que la raison froide n'obtienne mieux. Et elle détruit celui qui la porte.</p>
-    <p class="hero-intro">Sénèque consacre le traité le plus long de son oeuvre à la colère. Non parce qu'elle est la plus grave des passions — mais parce qu'elle est la plus visible, la plus contagieuse, et la plus facile à confondre avec de la force. Elle n'est que de la faiblesse qui s'embrase.</p>
+    <p class="hero-greek-label">Orgê — La colère <span>·</span> Thumos — L'ardeur <span>·</span> Discipline de l'impulsion</p>
+    <h1>Le feu<em>qui consume ou forge</em></h1>
+    <p class="hero-sub">La colère n'est pas l'ennemi. L'esclavage, c'est laisser une représentation décider à ta place.</p>
+    <p class="hero-intro">Sénèque y a consacré trois livres. Marc Aurèle y revient dans ses <em>Pensées</em> comme à un combat quotidien jamais tout à fait gagné. La colère est peut-être la passion la plus étudiée du stoïcisme — parce qu'elle est la plus rapide, la plus destructrice, et paradoxalement, la plus riche d'information sur ce qui compte vraiment pour toi.</p>
     <button class="scroll-cta" onclick="document.getElementById('contenu').scrollIntoView({behavior:'smooth'})">Descendre</button>
   </header>
   <main id="contenu">
     <section class="section">
       <p class="section-tag">I — Anatomie</p>
-      <h2>Les trois temps de <em>la colère</em></h2>
-      <p>Sénèque, dans le De Ira, est le premier philosophe à décomposer la colère en stades successifs avec une précision clinique. Cette analyse change tout : elle révèle où la liberté existe — et où elle disparaît.</p>
-      <div class="trois-temps">
-        <div class="temps-item">
-          <div class="temps-number involontaire">I</div>
-          <div class="temps-content">
-            <p class="t-label">Premier mouvement</p>
-            <p class="t-title">Le choc involontaire</p>
-            <p>Le sang qui monte. La mâchoire qui se serre. Le souffle qui change. Ce premier frémissement est involontaire — une réaction animale au stimulus. Ce n'est pas encore de la colère. C'est de la physiologie. Sénèque est explicite : ce stade est inévitable et non coupable. Même le sage le ressent.</p>
-            <span class="temps-highlight libre">Inévitable — non coupable</span>
-          </div>
+      <h2>Ce qu'est <em>vraiment</em> la colère</h2>
+      <p>Les Stoïciens définissent la colère — <em>orgê</em> — comme un désir de punir celui qui nous a, selon nous, lésés injustement. Ce « selon nous » est capital. La colère n'est pas une réponse à l'injustice réelle. C'est une réponse au jugement que tu portes sur une situation : que tu méritais mieux, que l'autre a mal agi, que les choses auraient dû être autrement.</p>
+      <p>C'est pourquoi Sénèque écrit dans le <em>De Ira</em> que la colère est toujours précédée d'une opinion. Supprime l'opinion — ou corrige-la — et la colère n'a plus de carburant.</p>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <p class="greek">Ὀργή</p><p class="latin">Orgê / Ira</p>
+          <p>La colère proprement dite — le désir de rendre le mal pour le mal, fondé sur le jugement d'une injustice subie. La plus explosive des passions stoïciennes.</p>
         </div>
-        <div class="temps-item">
-          <div class="temps-number assentiment">II</div>
-          <div class="temps-content">
-            <p class="t-label">L'assentiment — le moment décisif</p>
-            <p class="t-title">Tu approuves la représentation</p>
-            <p>Tu dis oui à la pensée : "cette personne mérite ma colère", "cette injustice justifie ma rage", "j'ai le droit d'être furieux". C'est ici que la colère naît vraiment — dans ce consentement intérieur. C'est ici, et nulle part ailleurs, que ta liberté est entière.</p>
-            <span class="temps-highlight libre">← L'espace de ta liberté</span>
-          </div>
+        <div class="concept-card">
+          <p class="greek">Θυμός</p><p class="latin">Thumos / Ardor</p>
+          <p>L'ardeur, le feu de l'âme — neutre en lui-même. Peut devenir colère destructrice ou courage vertueux selon la qualité de l'assentiment qui le dirige.</p>
         </div>
-        <div class="temps-item">
-          <div class="temps-number impulsion">III</div>
-          <div class="temps-content">
-            <p class="t-label">L'impulsion</p>
-            <p class="t-title">La colère agit</p>
-            <p>Une fois l'assentiment accordé, la colère prend le contrôle. Elle parle, accuse, détruit. La raison est court-circuitée. Ce qui était une représentation devient une force aveugle. Récupérer la raison à ce stade est possible — mais difficile. Mieux vaut ne jamais y arriver.</p>
-            <span class="temps-highlight danger">Raison court-circuitée</span>
-          </div>
+        <div class="concept-card">
+          <p class="greek">Ἀγανάκτησις</p><p class="latin">Aganaktêsis / Indignatio</p>
+          <p>L'indignation — colère face à ce qui blesse autrui, pas soi-même. Les Stoïciens la distinguent de l'<em>orgê</em> : elle peut être légitime si elle naît d'un jugement juste.</p>
         </div>
       </div>
-      <blockquote class="feu">La colère est la plus laide et la plus furieuse de toutes les passions. Les autres ont quelque chose de calme et de tranquille — la colère est toute fièvre et mouvement.<cite>Sénèque, De Ira, I.1</cite></blockquote>
     </section>
     <section class="section">
-      <p class="section-tag">II — Sénèque</p>
-      <h2>Pourquoi la colère est <em>inutile</em></h2>
-      <p>L'argument central de Sénèque n'est pas moral — il est stratégique. Il ne dit pas que la colère est mauvaise. Il dit qu'elle est <strong>inefficace</strong>. Et c'est bien plus dévastateur pour celui qui croit en tirer de la force.</p>
-      <div class="inutile-grid">
-        <div class="inutile-card">
-          <p class="i-num">Argument I</p>
-          <p class="i-title">Elle n'obtient rien</p>
-          <p>Tout ce que la colère prétend accomplir — corriger une injustice, obtenir réparation, imposer le respect — la raison froide l'obtient mieux, plus vite, et sans les dégâts collatéraux.</p>
-        </div>
-        <div class="inutile-card">
-          <p class="i-num">Argument II</p>
-          <p class="i-title">Elle détruit son porteur</p>
-          <p>La colère consomme celui qui la porte avant d'atteindre sa cible. Elle agite le corps, trouble le jugement, épuise l'énergie. L'adversaire n'en souffre souvent pas — toi, si.</p>
-        </div>
-        <div class="inutile-card">
-          <p class="i-num">Argument III</p>
-          <p class="i-title">Elle est une faiblesse déguisée</p>
-          <p>On croit que la colère est de la force. C'est l'inverse. Seul celui qui ne peut pas contrôler ses représentations explose. La force réelle est le calme — pas l'absence d'émotion, mais la maîtrise de l'assentiment.</p>
-        </div>
-      </div>
-      <blockquote>Il n'est pas de remède à la colère — sinon la raison. La raison demande du temps. La colère ne supporte pas le délai. C'est pourquoi elles sont incompatibles.<cite>Sénèque, De Ira, III.12</cite></blockquote>
-    </section>
-    <section class="section">
-      <p class="section-tag">III — Le premier mouvement</p>
-      <h2>Ce qui est inévitable <em>n'est pas une faute</em></h2>
-      <p>L'un des apports les plus subtils de Sénèque est cette distinction : le premier mouvement corporel face à une provocation n'est pas de la colère. C'est de la biologie. Exiger de ne jamais ressentir ce premier frémissement, c'est exiger l'impossible — et se condamner à l'échec à chaque épreuve.</p>
-      <p>Le sage stoïcien n'est pas insensible. Il pâlit face au danger, il ressent le choc de la trahison, il éprouve le premier mouvement comme tout être vivant. Ce qui le distingue, c'est ce qu'il fait <em>après</em> — dans cet espace infinitésimal entre le choc et l'assentiment.</p>
+      <p class="section-tag">II — Sénèque et le diagnostic</p>
+      <h2>Pourquoi la colère est <em>toujours une erreur</em></h2>
+      <p>Sénèque est radical : la colère n'est jamais utile. Jamais. Ni pour punir, ni pour corriger, ni pour se défendre. Ce qui semble être de la force dans la colère est en réalité une faiblesse — tu as cédé le contrôle à une représentation, à une opinion sur ce que tu méritais.</p>
+      <blockquote>La colère est un acide qui ronge davantage le récipient qui la contient que tout ce sur quoi elle est versée.<cite>Sénèque, De Ira, I.1</cite></blockquote>
+      <p>L'argument central du <em>De Ira</em> : même si la punition est méritée, la colère n'est pas le bon vecteur. Le juge qui condamne sans colère est plus juste que celui qui condamne avec. L'action juste ne nécessite pas la passion — elle n'en est que rendue plus difficile.</p>
       <div class="ghost-section">
-        <p class="ghost-tag">Distinction fondamentale</p>
-        <h3>Ressentir n'est pas céder</h3>
+        <p class="ghost-tag">Diagnostic Ghost</p>
+        <h3>Les trois illusions de la colère</h3>
         <ul class="pillars-list">
-          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>Le premier mouvement — inévitable</strong><p>Tu reçois une injustice. Quelque chose se contracte en toi. Ce n'est pas de la colère — c'est une information. Ton système reconnaît une violation. C'est légitime et utile.</p></div></li>
-          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>La pause — l'espace de choix</strong><p>Entre ce premier mouvement et la réponse, il y a un espace. Minuscule au début. Expansible avec la pratique. C'est dans cet espace que tout se joue — et que le Ghost opère.</p></div></li>
-          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>La réponse — choisie</strong><p>Ce n'est pas l'absence de réaction qui est l'objectif. C'est la réaction <em>choisie</em> plutôt que subie. Agir depuis la raison, pas depuis l'impulsion. La force, pas la fureur.</p></div></li>
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>L'illusion de la force</strong><p>Se mettre en colère donne l'impression d'agir, de résister, d'affirmer sa valeur. C'est l'inverse : tu révèles exactement ce qui peut te déstabiliser. L'autre a trouvé le bouton.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>L'illusion de la justice</strong><p>La colère se croit au service de la justice. Elle l'instrumentalise. Une décision prise sous l'emprise de la colère est presque toujours disproportionnée — et regrettée.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>L'illusion du contrôle</strong><p>La colère donne l'impression de reprendre le contrôle d'une situation. En réalité, c'est la situation qui te contrôle. Tu réagis — tu n'agis plus.</p></div></li>
         </ul>
       </div>
     </section>
     <section class="section">
-      <p class="section-tag">IV — Marc Aurèle</p>
-      <h2>La colère contre <em>l'ignorance</em></h2>
-      <p>Marc Aurèle ajoute à l'analyse de Sénèque une dimension cosmique qui change radicalement la nature du problème. Se mettre en colère contre un homme qui agit mal, c'est se mettre en colère contre quelqu'un qui agit selon sa nature — une nature que l'ignorance gouverne.</p>
-      <blockquote>Commence chaque jour en te disant : aujourd'hui je rencontrerai des indiscrets, des ingrats, des arrogants, des traîtres, des envieux, des égoïstes. Ils sont ainsi parce qu'ils ne distinguent pas le bien du mal.<cite>Marc Aurèle, Pensées, II.1</cite></blockquote>
-      <p>Cette préparation matinale n'est pas du cynisme — c'est de la lucidité désarmée. Marc Aurèle sait exactement ce qu'il va rencontrer. Il choisit de ne pas en être détruit. Non par indifférence, mais par compréhension : celui qui agit mal agit par ignorance, pas par malice essentielle.</p>
-      <p>Se mettre en colère contre l'ignorance d'autrui, c'est aussi absurde que se mettre en colère contre la pluie. La pluie ne choisit pas de tomber. L'homme ignorant ne choisit pas son ignorance — il est prisonnier de représentations qu'il n'a pas su examiner.</p>
-      <blockquote>Quand quelqu'un t'a offensé, demande-toi aussitôt : quelle conception du bien et du mal l'a conduit à agir ainsi ? Car si tu comprends cela, tu auras pitié de lui, non de la colère.<cite>Marc Aurèle, Pensées, VII.26</cite></blockquote>
-    </section>
-    <section class="section">
-      <p class="section-tag">V — Doctrine Ghost</p>
-      <h2>Transformer la colère <em>en force</em></h2>
-      <p>Le Ghost ne supprime pas la colère. Il la transforme. Le premier mouvement est une information — il signale une violation, une injustice, quelque chose qui mérite une réponse. La question n'est pas de l'éteindre, mais de choisir quelle forme prendra cette réponse.</p>
-      <div class="transformation">
-        <div class="transf-from">
-          <p class="transf-label">Colère brute</p>
-          <p class="transf-value">Réaction impulsive</p>
-          <p class="transf-desc">Énergie dispersée, jugement court-circuité, action destructrice pour soi et l'adversaire</p>
+      <p class="section-tag">III — Le mécanisme exact</p>
+      <h2>De la représentation <em>à l'explosion</em></h2>
+      <p>Chrysippe a formalisé le processus par lequel la colère naît, s'emballe, ou est interceptée. Comprendre chaque étape, c'est savoir où intervenir — avant que le feu ne soit incontrôlable.</p>
+      <div class="mechanism">
+        <div class="mechanism-step">
+          <div class="step-number">I</div>
+          <div class="step-content">
+            <p class="step-greek">Φαντασία προσβολή</p>
+            <p class="step-title">La première morsure</p>
+            <p>Un événement frappe — une parole, un geste, une injustice perçue. L'âme reçoit une représentation chargée de valeur négative. Cette première réaction est involontaire, automatique. Les Stoïciens appellent cela la <em>propatheiai</em> — la pré-passion. Elle n'est pas encore la faute.</p>
+          </div>
         </div>
-        <div class="transf-arrow">→</div>
-        <div class="transf-to">
-          <p class="transf-label">Force disciplinée</p>
-          <p class="transf-value">Action choisie</p>
-          <p class="transf-desc">Même énergie, canalisée par la raison, traduite en action précise et efficace</p>
+        <div class="mechanism-step">
+          <div class="step-number">II</div>
+          <div class="step-content">
+            <p class="step-greek">Συγκατάθεσις — Synkatathesis</p>
+            <p class="step-title">L'assentiment — le moment décisif</p>
+            <p>L'âme approuve la représentation : « Oui, c'est une injustice. Oui, je méritais mieux. Oui, cet homme a mal agi. » C'est ici que tout se joue. Avant : simple perception involontaire. Après : la passion est en marche.</p>
+            <span class="step-highlight">← L'unique espace de ta liberté</span>
+          </div>
+        </div>
+        <div class="mechanism-step">
+          <div class="step-number">III</div>
+          <div class="step-content">
+            <p class="step-greek">Ὁρμή ἄλογος</p>
+            <p class="step-title">L'impulsion irrationnelle</p>
+            <p>Si l'assentiment a été accordé, l'impulsion suit immédiatement. La montée physiologique — rythme cardiaque, tension, voix — est déjà en route. C'est encore récupérable, mais de plus en plus difficile à mesure que les secondes passent.</p>
+          </div>
+        </div>
+        <div class="mechanism-step">
+          <div class="step-number">IV</div>
+          <div class="step-content">
+            <p class="step-greek">Ὀργή — Orgê</p>
+            <p class="step-title">La colère installée</p>
+            <p>La passion est pleine. Le jugement est obscurci. À ce stade, Sénèque dit qu'il ne faut plus tenter de raisonner — il faut attendre. Comme on attend que la tempête passe. La raison reviendra — mais seulement après.</p>
+          </div>
         </div>
       </div>
+      <blockquote>La colère commence là où la raison finit. Mais la raison peut toujours intercepter avant que la colère ne commence.<cite>Sénèque, De Ira, II.4</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">IV — Marc Aurèle et la pratique</p>
+      <h2>Se préparer <em>avant</em> la tempête</h2>
+      <p>Marc Aurèle ne théorise pas la colère depuis une tour d'ivoire. Il gouverne un empire, gère des généraux incompétents, des courtisans flatteurs, des adversaires acharnés. Ses <em>Pensées</em> sont les notes de combat d'un homme qui pratique la maîtrise de la colère au quotidien — avec des résultats imparfaits, qu'il note avec honnêteté.</p>
+      <p>Sa stratégie principale : la <em>praemeditatio</em> appliquée aux irritants. Chaque matin, il se prépare à rencontrer l'ingratitude, la sottise, la mauvaise foi. Non pour devenir cynique — mais pour que ces choses ne le surprennent plus, et donc ne le mettent plus en colère.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Pratique Ghost — Marc Aurèle</p>
+        <h3>Les quatre remèdes préventifs</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>La vue de haut — Perspective cosmique</strong><p>Prendre de la hauteur sur l'événement. Dans cent ans, cette humiliation, cette trahison, cet affront — existeront-ils encore ? L'Aigle voit la tempête depuis au-dessus des nuages.</p></div></li>
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>La compréhension de l'autre</strong><p>Cet homme agit ainsi parce qu'il ne sait pas mieux. Pas par malveillance pure — par ignorance, par peur, par ses propres représentations mal orientées. Comprendre n'est pas excuser. C'est éteindre le carburant de la colère.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>L'examen de soi</strong><p>Toi-même, n'as-tu jamais agi comme cet homme ? La colère juge l'autre à une norme qu'on n'applique pas toujours à soi. Cette question désarme l'indignation sans la valider.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>La séparation action / émotion</strong><p>Agir si nécessaire — corriger, punir, refuser — sans que la colère soit le moteur. L'action juste est possible sans la passion. Elle en est même rendue plus précise.</p></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">V — La colère comme signal</p>
+      <h2>Ce que la colère <em>révèle</em></h2>
+      <p>Avant d'éteindre la colère, le Ghost l'écoute. Parce qu'elle est un signal précieux : elle indique exactement où tes attentes étaient mal placées, ce à quoi tu tenais trop, quels désirs étaient orientés vers ce qui ne dépend pas de toi.</p>
+      <p>La colère ne ment pas sur ce que tu valorises. Elle dit : ici, tu pensais avoir droit à quelque chose. Ici, tu attendais un résultat que tu ne contrôlais pas. C'est un diagnostic offert gratuitement — si tu as la lucidité de l'entendre avant d'exploser.</p>
+      <div class="ghost-section">
+        <p class="ghost-tag">Lecture du signal</p>
+        <h3>Trois questions à poser à ta colère</h3>
+        <ul class="pillars-list">
+          <li><span class="pillar-icon">①</span><div class="pillar-text"><strong>Qu'est-ce que je pensais mériter ?</strong><p>Toute colère repose sur une attente déçue. Identifier cette attente — est-elle réaliste ? Dépend-elle de toi ? Si non, c'est un désir mal orienté que la colère vient de révéler.</p></div></li>
+          <li><span class="pillar-icon">②</span><div class="pillar-text"><strong>Quelle valeur cette colère défend-elle ?</strong><p>Pas toute colère est vaine. Parfois elle défend quelque chose de légitime — la justice, la dignité, la vérité. Identifier la valeur permet de l'honorer autrement que par l'explosion.</p></div></li>
+          <li><span class="pillar-icon">③</span><div class="pillar-text"><strong>Quelle action juste cette information commande-t-elle ?</strong><p>Le signal lu, que faire ? Corriger, partir, parler, accepter ? La colère indique qu'il faut agir — rarement de la manière qu'elle prescrit.</p></div></li>
+        </ul>
+      </div>
+      <blockquote>Celui qui est en colère souffre toujours plus qu'il ne fait souffrir.<cite>Sénèque, De Ira, III.5</cite></blockquote>
+    </section>
+    <section class="section">
+      <p class="section-tag">VI — La doctrine Ghost</p>
+      <h2>Forger le feu, <em>pas l'éteindre</em></h2>
       <div class="ghost-section">
         <p class="ghost-tag">Application — Les quatre piliers</p>
         <h3>Comment le Ghost habite la colère</h3>
         <ul class="pillars-list">
-          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>L'Aigle et la hauteur</strong><p>L'aigle ne plonge pas dans la fureur de la mêlée. Il observe depuis la hauteur. La colère est une information vue depuis le bas — elle déforme la perspective. Monter, c'est retrouver la clarté sur ce qui mérite vraiment une réponse, et laquelle.</p></div></li>
-          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et la forge</strong><p>Ce qui t'a mis en colère dans le passé t'a révélé où tu es encore vulnérable — quels désirs mal orientés, quelles attentes non examinées. La colère ancienne est une carte de tes zones de croissance. Non pour t'y complaire, mais pour les travailler.</p></div></li>
-          <li><span class="pillar-icon">🐂</span><div class="pillar-text"><strong>Le Taureau et la patience</strong><p>La colère veut agir maintenant. Le Taureau sait attendre. Non par passivité — par stratégie. La réponse qui arrive après la pause est toujours plus précise, plus efficace, et moins coûteuse que celle qui jaillit dans la fureur du premier instant.</p></div></li>
-          <li><span class="pillar-icon">∞</span><div class="pillar-text"><strong>Aurelius Secundus et la compréhension</strong><p>Comprendre pourquoi quelqu'un a agi ainsi ne l'excuse pas. Cela te libère de la dépendance à sa punition pour retrouver ta paix. Tu n'as pas besoin que l'autre reconnaisse son tort pour être libre de la colère qu'il a déclenchée.</p></div></li>
+          <li><span class="pillar-icon">🦅</span><div class="pillar-text"><strong>L'Aigle et la phantasia</strong><p>La hauteur de vue intercepte la représentation avant l'assentiment. L'Aigle voit l'événement pour ce qu'il est — pas pour ce que la colère voudrait qu'il soit. La distance n'est pas de la froideur : c'est de la précision.</p></div></li>
+          <li><span class="pillar-icon">⚔</span><div class="pillar-text"><strong>Macdubh et la forge</strong><p>Ce qui t'a mis en colère aujourd'hui te montre exactement où tu n'es pas encore libre. Macdubh — fils du noir — ne fuit pas ce diagnostic. Il le prend comme matière première. La colère forge quand on refuse de la subir.</p></div></li>
+          <li><span class="pillar-icon">🐂</span><div class="pillar-text"><strong>Le Taureau et la patience</strong><p>La colère veut le résultat immédiat — la punition, la réparation, la reconnaissance. Le Taureau endure. Il sait que la réponse juste prend du temps, que l'action précipitée par la colère est rarement l'action sage.</p></div></li>
+          <li><span class="pillar-icon">∞</span><div class="pillar-text"><strong>Aurelius Secundus et la sagesse pratique</strong><p>Transformer la colère en information, l'information en action juste, l'action juste en habitude — c'est le travail de toute une vie. Pas l'absence de colère. La maîtrise de ce qu'on en fait.</p></div></li>
         </ul>
       </div>
     </section>
     <section class="section">
-      <p class="section-tag">VI — Exercice racine</p>
+      <p class="section-tag">VII — Exercice racine</p>
       <div class="exercise">
-        <p class="exercise-tag">Exercice — Sénèque · Le tribunal intérieur</p>
-        <h3>Instruire le procès de la colère</h3>
-        <p>Sénèque recommandait, chaque soir, de passer en revue les moments de la journée où la colère s'est manifestée — ou a failli se manifester. Non pour se flageller, mais pour instruire le cas avec la précision d'un juge.</p>
-        <div class="exercise-rule">Prends un moment de colère de ta journée.<br/>Soumets-le au tribunal.</div>
-        <p><strong>Question I — À quel stade étais-tu ?</strong><br/>Simple premier mouvement involontaire — ou assentiment accordé ? Si tu es allé jusqu'à l'assentiment : qu'est-ce qui t'a fait dire oui à la représentation ? Quelle croyance sur ce que tu mérites, sur ce qui t'est dû, s'est activée ?</p>
-        <p><strong>Question II — La colère était-elle utile ?</strong><br/>A-t-elle résolu quelque chose ? Changé quelque chose ? Ou a-t-elle seulement épuisé ton énergie et troublé ton jugement ? Sénèque pose la question sans pitié : si la réponse est non, à quoi a-t-elle servi ?</p>
-        <p><strong>Question III — Quelle réponse la raison aurait-elle choisie ?</strong><br/>Imagine la même situation avec dix secondes de délai supplémentaires entre le choc et ta réponse. Qu'aurais-tu dit ? Qu'aurais-tu fait ? C'est souvent très différent — et presque toujours plus efficace.</p>
-        <div class="exercise-rule">« La colère du Ghost ne s'embrase pas.<br/>Elle se concentre — et frappe juste,<br/>au moment choisi, avec la force nécessaire. »</div>
-        <p>Avec la pratique régulière, cet exercice raccourcit le délai entre le premier mouvement et la reconnaissance de ce qui se passe. Tu commences à percevoir l'assentiment — et à pouvoir le refuser avant qu'il soit accordé.</p>
+        <p class="exercise-tag">Exercice — Sénèque · De Ira</p>
+        <h3>L'audit du soir</h3>
+        <p>Sénèque pratiquait chaque soir un examen de conscience rigoureux — non pour se flageller, mais pour comprendre. Il s'interrogeait sur chaque moment où il avait perdu pied. Cet exercice en est l'adaptation directe.</p>
+        <div class="exercise-rule">Prends un moment de colère — ou d'irritation — de la journée.<br/>Un seul suffit. La précision vaut mieux que l'exhaustivité.</div>
+        <p><strong>1. Quelle était la représentation exacte ?</strong><br/>Pas l'événement — ta lecture de l'événement. Ce que tu as cru, interprété, supposé. C'est là que la colère a pris racine.</p>
+        <p><strong>2. À quel moment aurais-tu pu suspendre l'assentiment ?</strong><br/>Retrouve l'instant — même bref — entre la perception et la réaction. Il existait. Avec l'entraînement, il s'élargit.</p>
+        <p><strong>3. Quelle action juste la situation commandait-elle, sans la colère ?</strong><br/>Pas « aurais-je dû ne rien faire ». Mais : qu'est-ce que la raison, seule, sans la passion, aurait fait ?</p>
+        <div class="exercise-rule">« Le Ghost ne supprime pas sa colère.<br/>Il sait ce qu'elle lui dit — et agit autrement qu'elle ne le prescrit. »</div>
+        <p>Avec le temps, cet exercice change le grain de l'attention. Tu commences à percevoir la <em>phantasia</em> avant qu'elle ne devienne <em>orgê</em> — et c'est là, dans cet espace infime, que réside toute ta liberté.</p>
+      </div>
+    </section>
+    <section class="section">
+      <p class="section-tag">VIII — Les six facettes</p>
+      <h2>Approfondir <em>chaque dimension de la colère</em></h2>
+      <p>La colère n'est pas un sujet unique. C'est un territoire aux six visages — chacun avec sa propre logique, ses propres pièges, sa propre voie de maîtrise.</p>
+      <div class="concept-grid">
+        <a href="colere-injustice.html" style="text-decoration:none;">
+          <div class="concept-card">
+            <p class="greek">Θυμός</p>
+            <p class="latin">Facette I — L'Injustice</p>
+            <p>La colère comme réponse au <em>thymos</em> outragé. Aristote, Hegel, la soif de reconnaissance blessée. Pourquoi l'injustice perçue est le déclencheur universel.</p>
+            <p style="margin-top:0.75rem; font-style:italic; font-size:0.88rem; opacity:0.7; border-left:2px solid var(--braise); padding-left:0.75rem;">« La colère naît toujours d'un sentiment de mépris. » — Aristote</p>
+            <p style="margin-top:0.75rem; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--braise-clair); text-transform:uppercase;">→ Approfondir</p>
+          </div>
+        </a>
+        <a href="colere-mecanisme.html" style="text-decoration:none;">
+          <div class="concept-card">
+            <p class="greek">Ὀργή</p>
+            <p class="latin">Facette II — Le Mécanisme</p>
+            <p>Anatomie exacte de l'explosion. Phantasia, assentiment, impulsion — où intervenir, à quelle vitesse, avec quels outils. Chrysippe et la mécanique de la passion.</p>
+            <p style="margin-top:0.75rem; font-style:italic; font-size:0.88rem; opacity:0.7; border-left:2px solid var(--braise); padding-left:0.75rem;">« La colère commence là où la raison finit. » — Sénèque</p>
+            <p style="margin-top:0.75rem; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--braise-clair); text-transform:uppercase;">→ Approfondir</p>
+          </div>
+        </a>
+        <a href="colere-discipline.html" style="text-decoration:none;">
+          <div class="concept-card">
+            <p class="greek">Ἄσκησις</p>
+            <p class="latin">Facette III — La Discipline</p>
+            <p>Les exercices concrets de Sénèque. La pause, le silence, la retraite temporaire. Comment entraîner concrètement la maîtrise de l'impulsion au quotidien.</p>
+            <p style="margin-top:0.75rem; font-style:italic; font-size:0.88rem; opacity:0.7; border-left:2px solid var(--braise); padding-left:0.75rem;">« Diffère ta colère — et tu verras qu'elle s'est éteinte d'elle-même. » — Sénèque</p>
+            <p style="margin-top:0.75rem; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--braise-clair); text-transform:uppercase;">→ Approfondir</p>
+          </div>
+        </a>
+        <a href="colere-pouvoir.html" style="text-decoration:none;">
+          <div class="concept-card">
+            <p class="greek">Κράτος</p>
+            <p class="latin">Facette IV — Le Pouvoir</p>
+            <p>La colère comme illusion de puissance. Qui commande vraiment quand tu te mets en colère ? Marc Aurèle, Commode, et la différence entre autorité et réaction.</p>
+            <p style="margin-top:0.75rem; font-style:italic; font-size:0.88rem; opacity:0.7; border-left:2px solid var(--braise); padding-left:0.75rem;">« Se gouverner soi-même est le seul empire qui vaille. » — Marc Aurèle</p>
+            <p style="margin-top:0.75rem; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--braise-clair); text-transform:uppercase;">→ Approfondir</p>
+          </div>
+        </a>
+        <a href="colere-information.html" style="text-decoration:none;">
+          <div class="concept-card">
+            <p class="greek">Λόγος</p>
+            <p class="latin">Facette V — L'Information</p>
+            <p>La colère comme signal à lire avant d'éteindre. Ce qu'elle révèle sur tes valeurs, tes attentes, tes désirs mal orientés. Transformer le diagnostic en liberté.</p>
+            <p style="margin-top:0.75rem; font-style:italic; font-size:0.88rem; opacity:0.7; border-left:2px solid var(--braise); padding-left:0.75rem;">« Connais-toi toi-même — y compris dans ta colère. » — Épictète</p>
+            <p style="margin-top:0.75rem; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--braise-clair); text-transform:uppercase;">→ Approfondir</p>
+          </div>
+        </a>
+        <a href="colere-autre.html" style="text-decoration:none;">
+          <div class="concept-card">
+            <p class="greek">Ἀγάπη</p>
+            <p class="latin">Facette VI — L'Autre</p>
+            <p>Colère dans la relation — les ingrats, les ennemis, les proches. Marc Aurèle et la justice sans rancune. Comment rester juste sans devenir indifférent.</p>
+            <p style="margin-top:0.75rem; font-style:italic; font-size:0.88rem; opacity:0.7; border-left:2px solid var(--braise); padding-left:0.75rem;">« Nul n'est méchant volontairement. Il agit par ignorance. » — Marc Aurèle</p>
+            <p style="margin-top:0.75rem; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.12em; color:var(--braise-clair); text-transform:uppercase;">→ Approfondir</p>
+          </div>
+        </a>
       </div>
     </section>
   </main>
   <div class="final-quote">
-    <p>« Ce n'est pas l'absence de feu<br/>qui fait la force du Ghost —<br/>c'est de savoir exactement où diriger la flamme. »</p>
+    <p>« La colère est une tempête que tu peux traverser debout.<br/>Non en la niant —<br/>en refusant de lui céder le gouvernail. »</p>
     <cite>— Aurelius Secundus</cite>
   </div>
+  <nav style="text-align:center; padding:2rem; border-top:1px solid rgba(201,169,110,0.08);">
+    <a href="le-desir.html" style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--pierre-faible); text-decoration:none; text-transform:uppercase; margin:0 1.5rem;">← Le Désir</a>
+    <a href="le-temps.html" style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--braise-clair); text-decoration:none; text-transform:uppercase; margin:0 1.5rem;">Le Temps →</a>
+  </nav>
   <footer>Aurelius Secundus · Ghost-2 · Morale de Ghost · La Citadelle Intérieure</footer>
 </body>
 </html>
